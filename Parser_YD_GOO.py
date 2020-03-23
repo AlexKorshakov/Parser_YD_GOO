@@ -1,10 +1,10 @@
 import os
 import requests
+import random
+import time
 import win32com.client as com_client
 from datetime import datetime
 from bs4 import BeautifulSoup
-from typing import Union
-import time
 
 
 class ExcelApp(object):
@@ -20,6 +20,7 @@ class ExcelApp(object):
 
     @classmethod
     def app_close(self):
+
         global excel
         try:
             # включаем обновление экрана и сообщения системы
@@ -41,43 +42,71 @@ class ExcelApp(object):
         return print('Книга создана в full_path')
 
 
-def Parser_YD_GOO(base_url, headers, maxPos = 5):
-    global company_title, company_link_1, company_text, company_contact, bar, divs, div, soup
-    start_def: datetime = datetime.now()
+def Url_constructor(base_url, region, maxPos=3):
+    mod_url = base_url + '&lr=' + str(region)
+    print('url ' + mod_url)
+    urls = [mod_url]
+
+    for i in range(maxPos):
+        if i >= 1:
+            url = str(mod_url + '&p=' + str(i))
+            if url not in urls:
+                urls.append(url)
+                print('url ' + url)
+    return urls
+
+
+def Parser_YD_GOO(urls, headers):
+    global company_title, company_link_1, company_text, company_contact, bar, divs, div, soup, request
+
     MyRequests = []
-    urls = [base_url]
-
-    session = requests.Session()
-    request = session.get(base_url, headers=headers)
-    if request.status_code == 200:
-        soup = BeautifulSoup(request.text, 'lxml')
-
-        for i in range(maxPos):
-            if i >= 1:
-                url = str(base_url + '&p=' + str(i))
-                if url not in urls:
-                    urls.append(url)
-                    print('url ' + url)
 
     for url in urls:
+        if url == urls[0]:
+            pass
+        else:
+            time_rand = random.randint(1, 60)
+            print('Время ожидания нового запроса time_rand ' + str(time_rand) + ' sec')
+            time.sleep(time_rand)
+
+        start_def: datetime = datetime.now()
         session = requests.Session()
-        request = session.get(url, headers=headers,  stream = True)
+
+         #  pr = open('proxy.txt')
+         #  proxy = pr.readlines()
+         #  http_proxy = proxy[0].strip()
+         #  https_proxy = "https://127.0.0.1:8080"
+         #  proxyDict = {"http": http_proxy, "https": https_proxy}
+         #  request = session.get(url, headers=headers, stream=True, proxies=proxyDict)
+
+        #   ip_addresses = [“85.237.57.198:44959”, “116.0.2.94:43379”, “186.86.247.169:39168”,
+        #   “185.132.179.112:1080”, “190.61.44.86:9991”]
+
+        #   proxy_index = random.randint(0, len(ip_addresses) - 1)
+        #   proxy = {"http": ip_addresses(proxy_index), "https": ip_addresses(proxy_index)}
+        #   session.get(url, proxies=proxies)
+
+        request = session.get(url, headers=headers, stream=True) # , timeout=0.001
         if request.status_code == 200:
             soup = BeautifulSoup(request.text, 'lxml')
+            # print(soup)
             divs = soup.find_all('li', class_='serp-item')
             # divs = soup.find_all('li', attrs={'class': 'serp-item'})
             if len(divs) > 0:
                 print(str(len(divs)))
             else:
-                print('неудачный запрос')
-            iRow: int = 0
+                print('Ответ не содержит нужных данных :(')
+                print('Ответ сайта ' + str(request.status_code))
+        else:
+            print('Ответ сервера ' + str(request.status_code))
 
+        iRow: int = 0
         for div in divs:
 
             try:
                 try:
-                    company_title = div.find('h2',
-                                             attrs={'class': 'organic__title-wrapper typo typo_text_l typo_line_m'}).text
+                    company_title = div.find('h2', attrs={
+                        'class': "organic__title-wrapper typo typo_text_l typo_line_m"}).text
                     print('company_title ' + company_title)
                 except:
                     pass
@@ -99,7 +128,7 @@ def Parser_YD_GOO(base_url, headers, maxPos = 5):
                     print('company_contact ' + company_contact)
                 except:
                     pass
-
+                print(' * * * ')
                 iRow: int = iRow + 1
 
                 MyRequests.append({
@@ -115,6 +144,7 @@ def Parser_YD_GOO(base_url, headers, maxPos = 5):
         print('Всего:' + str(len(MyRequests)) + ' ' + 'Время выполнения lxml: ' + str(finish - start_def))
     else:
         print('Error or Done ' + str(request.status_code))
+
     return MyRequests
 
 
@@ -171,10 +201,17 @@ def file_writer_win32(MyRequests, fullpath):
 headers = {'accept': '*/*',
            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
                          'Chrome/80.0.3987.106 Safari/537.36'}
-base_url: str = f'https://yandex.ru/search/?text=%D0%B7%D0%B0%D0%BF%D1%87%D0%B0%D1%81%D1%82%D0%B8%20%D0%BD%D0%B0%20%D1%82%D1%80%D0%B0%D0%BA%D1%82%D0%BE%D1%80&lr=2'
+# базовый запрос
+base_url: str = f'https://yandex.ru/search/?text=%D0%B7%D0%B0%D0%BF%D1%87%D0%B0%D1%81%D1%82%D0%B8%20%D0%BD%D0%B0%20' \
+                f'%D1%82%D1%80%D0%B0%D0%BA%D1%82%D0%BE%D1%80'
+# задаём полный путь к файлу с выгрузкой
 fullpath = r'C:\Users\DeusEx\PycharmProjects\Parser_YD_GOO\Parser_YD_GOO.xlsx'
-maxPos = 5
+# задаём максимальное кооличество запросов
+maxPos = 2
+# Задаём регион. Санкт-Петербург – 2. Краснодар  - 35
+# Список идентификаторов российских регионов https://tech.yandex.ru/xml/doc/dg/reference/regions-docpage/
+region = 35
 
-MyRequest = Parser_YD_GOO(base_url, headers, maxPos)
+MyRequest = Parser_YD_GOO(Url_constructor(base_url, region, maxPos), headers)
 file_writer_win32(MyRequest, fullpath)
 print('Парсинг завершен')
