@@ -1,11 +1,12 @@
 import os
-import requests
 import random
 import time
-from tqdm import tqdm
-import win32com.client as com_client
 from datetime import datetime
+import requests
+import win32com.client as com_client
+from win32com.client import Dispatch
 from bs4 import BeautifulSoup
+from tqdm import tqdm
 
 
 class ExcelApp(object):
@@ -13,225 +14,235 @@ class ExcelApp(object):
     @classmethod
     def app_open(cls):
         # открываем Excel в скрытом режиме, отключаем обновление экрана и сообщения системы
-        excel = com_client.Dispatch("Excel.Application")
+        excel = Dispatch("Excel.Application")
         excel.Visible = False
         excel.DisplayAlerts = False
         excel.ScreenUpdating = False
         return print('Книга excel открыта')
 
     @classmethod
-    def app_close(cls):
-
-        global excel
-        try:
-            # включаем обновление экрана и сообщения системы
-            excel = com_client.Dispatch("Excel.Application")
-            excel.Visible = True
-            excel.DisplayAlerts = True
-            excel.ScreenUpdating = True
-            # выходим из Excel
-        finally:
-            excel.Quit()
-        return print('Книга excel закрыт')
-
-    @classmethod
     def file_create(cls, full_path):
-        excel = com_client.Dispatch("Excel.Application")
+        excel = Dispatch("Excel.Application")
         wbook = excel.Workbooks.Add()
         # wbook.Worksheets.Add()
         wbook.SaveAs(full_path)
-        return print('Книга создана в full_path')
+        return print('Книга создана в my_full_path')
+
+    @classmethod
+    def app_close(cls):
+        try:
+            # включаем обновление экрана и сообщения системы
+            excel = Dispatch("Excel.Application")
+            excel.Visible = True
+            excel.DisplayAlerts = True
+            excel.ScreenUpdating = True
+        finally:
+            # выходим из Excel
+            excel.Quit()
+            return print('Книга excel закрыт')
 
 
 def Url_constructor(queries_path, selected_base_url, selected_region, max_pos=3):
-    global urls
+    global urls, divs_ques
     urls = []
     queries = open(queries_path, 'r', encoding='utf-8')
     query: list = [x.strip() for x in queries]
     queries.close()
 
     for ques in query:
+        divs_ques = ques
         mod_url = selected_base_url + ques.replace(' ', '%20') + '&lr=' + str(selected_region)
-        urls.append(mod_url)
+        # urls.append(mod_url)
         print('url ' + mod_url)
         for i in range(max_pos):
-            if i >= 1:
+            if i == 0:
+                urls.append({'url': mod_url, 'ques': divs_ques})
+            else:
                 url = str(mod_url + '&p=' + str(i))
                 if url not in urls:
-                    urls.append(url)
+                    urls.append({'url': url, 'ques': divs_ques})
                     print('url ' + url)
     return urls
 
 
-# noinspection PyGlobalUndefined
-def Parser_YD_GOO(my_urls, my_headers):
-    global company_title, company_link_1, company_text, company_contact, bar, divs, div, soup, request, company_sitelinks
-
-    my_requests = []
-
-    for url in my_urls:
-        if url == my_urls[0]:
-            pass
-        else:
+def Parser_YD_GOO(my_urls, my_headers, full_path):
+    global divs, soup, request, my_requests, requests, divs_requests
+    url_counter: int = 0
+    divs_requests = []
+    for it_url in my_urls:
+        if url_counter != 0:
+            # Для всех ссылок кроме первой задаём рандомный промежуток задежки. ШОБ ЗРАЗУ НЕ ЗАБАНИЛИ
+            # задаём рандомеый промежуток задержки (от 1 до 30 сек)
             time_rand = random.randint(1, 30)
             print('Время ожидания нового запроса time_rand ' + str(time_rand) + ' sec')
-
-            # my_counter = range(time_rand)
             for item in tqdm(range(time_rand)):
                 time.sleep(1)
-            # time.sleep(time_rand)
 
         start_def: datetime = datetime.now()
         session = requests.Session()
-
         # proxy?
-        request = session.get(url, headers=my_headers, stream=True)
+        request = session.get(it_url['url'], headers=my_headers, stream=True)
         if request.status_code == 200:
             soup = BeautifulSoup(request.text, 'lxml')
-            # print(soup)
             divs = soup.find_all('li', class_='serp-item')
-            # divs = soup.find_all('li', attrs={'class': 'serp-item'})
             if len(divs) > 0:
-                print(str(len(divs)))
+                print('Всего найдено ' + str(len(divs)))
+                # дербаним выдачу
+                divs_text_shelves(divs, str(url_counter), it_url['ques'], divs_requests)
+                url_counter += 1
             else:
                 print('Ответ не содержит нужных данных :(')
                 print('Ответ сайта ' + str(request.status_code))
         else:
-            print('Ответ сервера ' + str(request.status_code))
+            print('Неудачный запрос! Ответ сервера ' + str(request.status_code))
 
-        i_row: int = 0
-        for div in divs:
-
-            try:
-                try:
-                    company_title = ''
-                    company_title = div.find('h2', attrs={
-                        'class': "organic__title-wrapper typo typo_text_l typo_line_m"}).text
-                    print('company_title ' + company_title)
-                except:
-                    pass
-                try:
-                    company_link_1 = ''
-                    company_link_1 = div.find('a', attrs={'class': 'path path_show-https organic__path'}).text
-                    # Link_2 = div.find(class_='link link_theme_outer path__item i-bem link_js_inited')['href']
-                    print('company_link_1 ' + company_link_1)
-                except:
-                    pass
-                try:
-
-                    company_sitelinks = ''
-                    company_sitelinks = div.find('div', attrs={
-                        'class': 'sitelinks sitelinks_size_m organic__sitelinks'}).text
-                    print('company_sitelinks ' + company_sitelinks)
-                except:
-                    pass
-
-                try:
-                    company_text = ''
-                    company_text = div.find('div', attrs={
-                        'class': 'text-container typo typo_text_m typo_line_m organic__text'}).text
-                    print('company_text ' + company_text)
-                except:
-                    pass
-                try:
-                    company_contact = ''
-                    company_contact = div.find('div', attrs={
-                        'class': 'serp-meta__item'}).text
-                    print('company_contact ' + company_contact)
-                except:
-                    pass
-                print(' * * * ')
-                i_row: int = i_row + 1
-
-                my_requests.append({
-                    'rowNom': i_row,
-                    'company_title': company_title,
-                    'company_link_1': company_link_1,
-                    'company_sitelinks': company_sitelinks,
-                    'company_text': company_text,
-                    'company_contact': company_contact
-                })
-            except:
-                pass
         finish = datetime.now()
-        print('Всего:' + str(len(my_requests)) + ' ' + 'Время выполнения lxml: ' + str(finish - start_def))
+        print('Время выполнения Parser_YD_GOO: ' + str(finish - start_def))
     else:
         print('Error or Done ' + str(request.status_code))
+    file_writer(divs_requests, full_path)
 
-    return my_requests
 
+def divs_text_shelves(divs, url_counter, url_ques, divs_requests=None):
+    #  парсим нужные данные
+    #  если лист со словарями(значениями) не создан - создаём сразу с заголовками
+    if len(divs_requests) == 0:
+        divs_requests.append(
+            {'rowNom': 'п\п',
+             'ques': 'Ключ',
+             'company_title': 'Название компании',
+             'company_cid': 'Позиция',
+             'company_link_1': 'Ссылка',
+             'company_sitelinks': 'Быстрая',
+             'company_text': 'Описалово',
+             'company_contact': 'Контакты'}
+        )
 
-def file_writer_win32(my_requests, full_path):
-    if int(len(my_requests)) == 0:
-        print('нет данных для записи')
-        exit()
-    else:
-        start_def: datetime = datetime.now()
+    i_row: int = 1
+    for DIV in divs:
+        i_row = i_row + 1
         try:
-            ExcelApp.app_open()
-            if os.path.exists(full_path):
-                os.remove(full_path)
-                ExcelApp.file_create(full_path)
-            else:
-                pass
-                ExcelApp.file_create(full_path)
-
-            try:
-                print('начало file_writer_win32')
-
-                try:
-                    wb = com_client.Dispatch("Excel.Application").Workbooks.Open(full_path)
-                    print('Книга создана')
-
-                    i_row: int = 1
-                    wb.Worksheets('Лист1').Cells(i_row, 1).Value = r'Номер п\п'
-                    wb.Worksheets('Лист1').Cells(i_row, 2).Value = 'Название компании'
-                    wb.Worksheets('Лист1').Cells(i_row, 3).Value = 'Ссылка'
-                    wb.Worksheets('Лист1').Cells(i_row, 4).Value = 'Быстрая ссылка'
-                    wb.Worksheets('Лист1').Cells(i_row, 5).Value = 'Описалово'
-                    wb.Worksheets('Лист1').Cells(i_row, 6).Value = 'Контакты'
-
-                    for MyRequest in my_requests:
-                        i_row += 1
-                        wb.Worksheets('Лист1').Cells(i_row, 1).Value = i_row
-                        wb.Worksheets('Лист1').Cells(i_row, 2).Value = MyRequest['company_title']
-                        wb.Worksheets('Лист1').Cells(i_row, 3).Value = MyRequest['company_link_1']
-                        wb.Worksheets('Лист1').Cells(i_row, 4).Value = MyRequest['company_sitelinks']
-                        wb.Worksheets('Лист1').Cells(i_row, 5).Value = MyRequest['company_text']
-                        wb.Worksheets('Лист1').Cells(i_row, 6).Value = MyRequest['company_contact']
-
-                except:
-                    print('Книга не создана')
-                    ExcelApp.app_close()
-
-            except:
-                print('Не книга не создана')
-                return
-
+            my_company_title = DIV.find('h2', attrs={
+                'class': "organic__title-wrapper typo typo_text_l typo_line_m"}).text
+            print('company_title ' + my_company_title)
         except:
-            print('file_writer_win32 не сработал')
+            my_company_title: str = ''
+        try:
+            my_company_cid = str(url_counter) + str(DIV.get('data-cid'))
+            print('company_cid ' + my_company_cid)
+        except:
+            my_company_cid: str = ''
+        try:
+            my_company_link_1 = DIV.find('a', attrs={
+                'class': 'link link_theme_outer path__item i-bem'}).text
+            print('company_link_1 ' + my_company_link_1)
+        except:
+            my_company_link_1: str = ''
+        try:
+            my_company_sitelinks = DIV.find('div', attrs={
+                'class': 'sitelinks sitelinks_size_m organic__sitelinks'}).text
+            print('company_sitelinks ' + my_company_sitelinks)
+        except:
+            my_company_sitelinks: str = ''
+        try:
+            my_company_text = DIV.find('div', attrs={
+                'class': 'text-container typo typo_text_m typo_line_m organic__text'}).text
+            print('company_text ' + my_company_text)
+        except:
+            my_company_text: str = ''
+        try:
+            my_company_contact = DIV.find('div', attrs={
+                'class': 'serp-meta__item'}).text
+            print('company_contact ' + my_company_contact)
+        except:
+            my_company_contact: str = ''
+        print(' * * * ')
 
-        finally:
-            ExcelApp.app_close()
-            finish = datetime.now()
-            print('Время выполнения file_writer_win32: ' + str(finish - start_def))
+        divs_requests.append(
+            {'rowNom': i_row,
+             'ques': url_ques,
+             'company_title': my_company_title,
+             'company_cid': my_company_cid,
+             'company_link_1': my_company_link_1,
+             'company_sitelinks': my_company_sitelinks,
+             'company_text': my_company_text,
+             'company_contact': my_company_contact}
+        )
+    return divs_requests
 
 
-headers = {'accept': '*/*', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0'}
-# headers = {'accept': '*/*',
-#            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
-#                          'Chrome/80.0.3987.106 Safari/537.36'}
-# базовый запрос
-base_url: str = f'https://www.yandex.ru/search/ads?text='
-# задаём полный путь к файлу с выгрузкой
-full_path = r'C:\Users\DeusEx\PycharmProjects\Parser_YD_GOO\Parser_YD_GOO.xlsx'
-queries_path = r'C:\Users\DeusEx\PycharmProjects\Parser_YD_GOO\queries.txt'
-# задаём максимальное кооличество запросов
-maxPos = 4
-# Задаём регион. Санкт-Петербург – 2. Краснодар  - 35
-# Список идентификаторов российских регионов https://tech.yandex.ru/xml/doc/dg/reference/regions-docpage/
-region = 2
+def file_writer(divs_requests, my_full_path):
+    # if int(len(divs_requests)) == 0:
+    #     print('нет данных для записи')
+    #     exit()
+    # else:
+    start_def: datetime = datetime.now()
+    try:
+        ExcelApp.app_open()
+        if os.path.exists(my_full_path):
+            os.remove(my_full_path)
+            ExcelApp.file_create(my_full_path)
+        else:
+            pass
+            #  ExcelApp.file_create(my_full_path)
+        try:
+            print('начало file_writer')
+            try:
+                # открываем книгу по пути full_path
+                wb = com_client.Dispatch("Excel.Application").Workbooks.Open(my_full_path)
+                print('Книга создана')
 
-MyRequest = Parser_YD_GOO(Url_constructor(queries_path, base_url, region, maxPos), headers)
-file_writer_win32(MyRequest, full_path)
-print('Парсинг завершен')
+                doc_row: int = 1
+                for divs_iter in divs_requests:
+                    wb.Worksheets('Лист1').Cells(doc_row, 1).Value = doc_row
+                    wb.Worksheets('Лист1').Cells(doc_row, 2).Value = divs_iter['ques']
+                    wb.Worksheets('Лист1').Cells(doc_row, 3).Value = divs_iter['company_title']
+                    wb.Worksheets('Лист1').Cells(doc_row, 4).Value = divs_iter['company_cid']
+                    wb.Worksheets('Лист1').Cells(doc_row, 5).Value = divs_iter['company_link_1']
+                    wb.Worksheets('Лист1').Cells(doc_row, 6).Value = divs_iter['company_sitelinks']
+                    wb.Worksheets('Лист1').Cells(doc_row, 7).Value = divs_iter['company_text']
+                    wb.Worksheets('Лист1').Cells(doc_row, 8).Value = divs_iter['company_contact']
+                    doc_row += 1
+
+                com_client.Dispatch("Excel.Application").DisplayAlerts = False
+                wb.Close(True, my_full_path)
+            except:
+                print('Книга не создана')
+                ExcelApp.app_close()
+        except:
+            print('Не книга не создана')
+            return
+    except:
+        print('file_writer не сработал')
+    finally:
+
+        ExcelApp.app_close()
+        finish = datetime.now()
+        print('Время выполнения file_writer: ' + str(finish - start_def))
+
+
+def main():
+    headers = {'accept': '*/*',
+               'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0'}
+    # headers = {'accept': '*/*',
+    #            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
+    #                          'Chrome/80.0.3987.106 Safari/537.36'}
+    # базовый запрос
+    base_url: str = f'https://www.yandex.ru/search/ads?text='
+    # задаём полный путь к файлу с выгрузкой
+    full_path = r'C:\Users\DeusEx\PycharmProjects\Parser_YD_GOO\Parser_YD_GOO.xlsx'
+    # задаём полный путь к файлу с ключами
+    queries_path = r'C:\Users\DeusEx\PycharmProjects\Parser_YD_GOO\queries.txt'
+    # задаём максимальное кооличество запросов
+    maxpos = 2
+    # Задаём регион. Санкт-Петербург – 2. Краснодар  - 35
+    # Список идентификаторов российских регионов https://tech.yandex.ru/xml/doc/dg/reference/regions-docpage/
+    region = 32
+
+    Parser_YD_GOO(Url_constructor(queries_path, base_url, region, maxpos), headers, full_path)
+    file_writer(divs_requests, full_path)
+    print('Парсинг завершен')
+
+
+if __name__ == '__main__':
+    main()
