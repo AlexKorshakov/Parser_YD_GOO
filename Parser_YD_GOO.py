@@ -4,9 +4,9 @@ import time
 from datetime import datetime
 import requests
 import win32com.client as com_client
-from win32com.client import Dispatch
 from bs4 import BeautifulSoup
 from tqdm import tqdm
+from win32com.client import Dispatch
 
 
 class ExcelApp(object):
@@ -30,6 +30,7 @@ class ExcelApp(object):
 
     @classmethod
     def app_close(cls):
+        global excel
         try:
             # включаем обновление экрана и сообщения системы
             excel = Dispatch("Excel.Application")
@@ -43,7 +44,7 @@ class ExcelApp(object):
 
 
 def Url_constructor(queries_path, selected_base_url, selected_region, max_pos=3):
-    global urls, divs_ques
+    global divs_ques
     urls = []
     queries = open(queries_path, 'r', encoding='utf-8')
     query: list = [x.strip() for x in queries]
@@ -51,8 +52,8 @@ def Url_constructor(queries_path, selected_base_url, selected_region, max_pos=3)
 
     for ques in query:
         divs_ques = ques
+        # breakpoint()
         mod_url = selected_base_url + ques.replace(' ', '%20') + '&lr=' + str(selected_region)
-        # urls.append(mod_url)
         print('url ' + mod_url)
         for i in range(max_pos):
             if i == 0:
@@ -65,17 +66,17 @@ def Url_constructor(queries_path, selected_base_url, selected_region, max_pos=3)
     return urls
 
 
-def Parser_YD_GOO(my_urls, my_headers, full_path):
+def Parser_YD_GOO(urls, my_headers, full_path):
     global divs, soup, request, my_requests, requests, divs_requests
     url_counter: int = 0
     divs_requests = []
-    for it_url in my_urls:
+    for it_url in urls:
         if url_counter != 0:
-            # Для всех ссылок кроме первой задаём рандомный промежуток задежки. ШОБ ЗРАЗУ НЕ ЗАБАНИЛИ
+            # Для всех ссылок КРОМЕ ПЕРВОЙ задаём рандомный промежуток задежки. ШОБ ЗРАЗУ НЕ ЗАБАНИЛИ
             # задаём рандомеый промежуток задержки (от 1 до 30 сек)
             time_rand = random.randint(1, 30)
             print('Время ожидания нового запроса time_rand ' + str(time_rand) + ' sec')
-            for item in tqdm(range(time_rand)):
+            for _ in tqdm(range(time_rand)):
                 time.sleep(1)
 
         start_def: datetime = datetime.now()
@@ -95,19 +96,17 @@ def Parser_YD_GOO(my_urls, my_headers, full_path):
                 print('Ответ сайта ' + str(request.status_code))
         else:
             print('Неудачный запрос! Ответ сервера ' + str(request.status_code))
-
-        finish = datetime.now()
-        print('Время выполнения Parser_YD_GOO: ' + str(finish - start_def))
+        print('Время выполнения Parser_YD_GOO: ' + str(datetime.now() - start_def))
     else:
         print('Error or Done ' + str(request.status_code))
     file_writer(divs_requests, full_path)
 
 
-def divs_text_shelves(divs, url_counter, url_ques, divs_requests=None):
+def divs_text_shelves(my_divs, url_counter, url_ques, my_divs_requests=None):
     #  парсим нужные данные
     #  если лист со словарями(значениями) не создан - создаём сразу с заголовками
-    if len(divs_requests) == 0:
-        divs_requests.append(
+    if len(my_divs_requests) == 0:
+        my_divs_requests.append(
             {'rowNom': 'п\п',
              'ques': 'Ключ',
              'company_title': 'Название компании',
@@ -119,7 +118,7 @@ def divs_text_shelves(divs, url_counter, url_ques, divs_requests=None):
         )
 
     i_row: int = 1
-    for DIV in divs:
+    for DIV in my_divs:
         i_row = i_row + 1
         try:
             my_company_title = DIV.find('h2', attrs={
@@ -158,7 +157,7 @@ def divs_text_shelves(divs, url_counter, url_ques, divs_requests=None):
             my_company_contact: str = ''
         print(' * * * ')
 
-        divs_requests.append(
+        my_divs_requests.append(
             {'rowNom': i_row,
              'ques': url_ques,
              'company_title': my_company_title,
@@ -168,10 +167,10 @@ def divs_text_shelves(divs, url_counter, url_ques, divs_requests=None):
              'company_text': my_company_text,
              'company_contact': my_company_contact}
         )
-    return divs_requests
+    return my_divs_requests
 
 
-def file_writer(divs_requests, my_full_path):
+def file_writer(my_divs_requests, my_full_path):
     # if int(len(divs_requests)) == 0:
     #     print('нет данных для записи')
     #     exit()
@@ -193,8 +192,8 @@ def file_writer(divs_requests, my_full_path):
                 print('Книга создана')
 
                 doc_row: int = 1
-                for divs_iter in divs_requests:
-                    wb.Worksheets('Лист1').Cells(doc_row, 1).Value = doc_row
+                for divs_iter in my_divs_requests:
+                    wb.Worksheets('Лист1').Cells(doc_row, 1).Value = divs_iter['rowNom']
                     wb.Worksheets('Лист1').Cells(doc_row, 2).Value = divs_iter['ques']
                     wb.Worksheets('Лист1').Cells(doc_row, 3).Value = divs_iter['company_title']
                     wb.Worksheets('Лист1').Cells(doc_row, 4).Value = divs_iter['company_cid']
@@ -234,12 +233,13 @@ def main():
     # задаём полный путь к файлу с ключами
     queries_path = r'C:\Users\DeusEx\PycharmProjects\Parser_YD_GOO\queries.txt'
     # задаём максимальное кооличество запросов
-    maxpos = 2
+    url_max_pos = 1
     # Задаём регион. Санкт-Петербург – 2. Краснодар  - 35
     # Список идентификаторов российских регионов https://tech.yandex.ru/xml/doc/dg/reference/regions-docpage/
     region = 32
 
-    Parser_YD_GOO(Url_constructor(queries_path, base_url, region, maxpos), headers, full_path)
+    urls = Url_constructor(queries_path, base_url, region, url_max_pos)
+    Parser_YD_GOO(urls, headers, full_path)
     file_writer(divs_requests, full_path)
     print('Парсинг завершен')
 
