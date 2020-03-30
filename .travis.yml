@@ -6,4 +6,6 @@ install:
   - pip install -e .
 
 script:
-  - pytest
+  — pytest --cov=Parser_YD_GOO.py
+after_success:
+  — coveralls
