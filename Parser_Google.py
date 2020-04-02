@@ -1,5 +1,6 @@
 import os
 import random
+import re
 import time
 import requests
 import win32com.client as com_client
@@ -56,14 +57,15 @@ def url_constructor(queries_path, selected_base_url, selected_region, max_pos=3)
     for ques in query:  # перебираем ключи и формируем url на их основе
         divs_ques: str = ques
         # breakpoint()
-        mod_url = selected_base_url + ques.replace(' ', '%20') + '&lr=' + str(selected_region)
+        mod_url = selected_base_url + '?q=' + ques.replace(' ', '+')  # + '&oq=' + ques.replace(
+        # ' ', '+') + "&lr=lang_ru" + '&tbs=lr:lang_1ru,qdr:y'
         print('url ' + mod_url)
 
         for i in range(max_pos):  # дополняем url и формируем для кажного запроса
             if i == 0:
                 urls.append({'url': mod_url, 'ques': divs_ques})  # перывя ссылка с ключем
             else:
-                url = str(mod_url + '&p=' + str(i))
+                url = str(mod_url + '&start=' + str(i))
                 if url not in urls:
                     urls.append({'url': url, 'ques': divs_ques})  # остальные ссылки с ключом
                     print('url ' + url)
@@ -81,10 +83,10 @@ def time_rand(t_start: int = 1, t_stop: int = 30):
 def Parser_YD_GOO(urls, my_headers):
     # основная функция парсера
     # создаём сессию (session), отправляем запрос (request), получаем ответ (request.text), варим суп (soup)
-    url_counter: int = 0
-    divs_requests = []  # создаем список ДО начала сессии
+    url_counter: int = 1
+    divs_requests: list = []  # создаем список ДО начала сессии
     for it_url in urls:
-        if url_counter != 0:  # Для всех ссылок КРОМЕ ПЕРВОЙ задаём рандомный промежуток задежки.
+        if url_counter != 1:  # Для всех ссылок КРОМЕ ПЕРВОЙ задаём рандомный промежуток задежки.
             time_rand(2, 15)
 
         adapter_yd = HTTPAdapter(max_retries=3)  # транспортный адаптер — максимальное количество повторов запроса
@@ -96,13 +98,15 @@ def Parser_YD_GOO(urls, my_headers):
             request: Response = session.get(it_url['url'], headers=my_headers, stream=True)  # запрос
             if request.status_code == 200:  # если запрос был выполнен успешно то
                 soup = BeautifulSoup(request.text, 'lxml')  # ответ
-                divs = soup.find_all('li', class_='serp-item')  # данные ответа
+                divs = soup.find_all('li', class_='ads-ad')  # данные ответа
+                # print(divs)
+                print(f' * * * ')
 
                 if len(divs) > 0:  # если ответ на запрос что то содержит то
                     print(f' \n Всего найдено ' + str(len(divs)))
                     # дербаним выдачу. передаём ответ сервера (divs), номер запроса (url_counter), ключ(it_url['ques']),
                     # и словарь с распарсенной выдачей(divs_requests)
-                    divs_text_shelves(divs, str(url_counter), it_url['ques'], divs_requests)  # парсим данные ответа
+                    divs_text_shelves(divs, url_counter, it_url['ques'], divs_requests)  # парсим данные ответа
                     url_counter += 1
                 else:
                     print('Ответ не содержит нужных данных :(')
@@ -119,55 +123,70 @@ def Parser_YD_GOO(urls, my_headers):
     return divs_requests
 
 
+def divs(d_path):
+    divs_f = open(d_path, 'r', encoding='utf-8')
+    divs: list = [x.strip() for x in divs_f]
+    divs_f.close()
+    divs_requests: list = []
+    divs_text_shelves(divs, '', str('бухралтерский анализ'), divs_requests)  # парсим данные ответа
+    return divs_requests
+
+
 def divs_text_shelves(my_divs, url_counter, url_ques, my_divs_requests=None):
+    # print(my_divs)
     #  парсим нужные данные ответа
     if len(my_divs_requests) == 0:  # если лист со словарями(значениями) не создан - создаём сразу с заголовками
-        my_divs_requests.append({'rowNom': 'п\п',
-                                 'ques': 'Ключ',
-                                 'company_title': 'Название компании',
-                                 'company_cid': 'Позиция',
-                                 'company_link_1': 'Ссылка',
-                                 'company_sitelinks': 'Быстрая',
-                                 'company_text': 'Описалово',
-                                 'company_contact': 'Контакты'})
+        my_divs_requests.append({'rowNom': 'п\п',  # i_row
+                                 'ques': 'Ключ',  # url_ques
+                                 'company_title': 'Название компании',  # my_company_title
+                                 'company_cid': 'Позиция',  # my_company_cid
+                                 'company_link_1': 'Ссылка',  # my_company_link_1
+                                 'company_sitelinks': 'Быстрая',  # my_company_sitelinks
+                                 'company_text': 'Описалово',  # my_company_text
+                                 'company_contact': 'Контакты'})  # my_company_contact
     i_row: int = 1
     for DIV in my_divs:
-        i_row = i_row + 1
         try:
-            my_company_title: str = DIV.find('h2', attrs={
-                'class': "organic__title-wrapper typo typo_text_l typo_line_m"}).text
-            print('company_title ' + my_company_title)
-        except:
-            my_company_title: str = ''
-        try:
-            my_company_cid: str = str(url_counter) + str(DIV.get('data-cid'))
+            my_company_cid: str = str(i_row - 1)
             print('company_cid ' + my_company_cid)
         except:
             my_company_cid: str = ''
         try:
-            my_company_link_1: str = DIV.find('a', attrs={
-                'class': 'link link_theme_outer path__item i-bem'}).text
+            my_company_link_1: str = DIV.find('div', attrs={'class': 'ads-visurl'}).text.replace('Реклама', ' ')
+            x: int = my_company_link_1.index('/')
+            my_company_link_1 = my_company_link_1[2:x]
             print('company_link_1 ' + my_company_link_1)
         except:
             my_company_link_1: str = ''
         try:
-            my_company_sitelinks: str = DIV.find('div', attrs={
-                'class': 'sitelinks sitelinks_size_m organic__sitelinks'}).text
+            my_company_sitelinks: str = DIV.find('div', attrs={'ul': 'OkkX2d'}).text
             print('company_sitelinks ' + my_company_sitelinks)
         except:
             my_company_sitelinks: str = ''
         try:
-            my_company_text: str = DIV.find('div', attrs={
-                'class': 'text-container typo typo_text_m typo_line_m organic__text'}).text
+            my_company_text: str = DIV.find('div', attrs={'class': 'ads-creative'}).text
             print('company_text ' + my_company_text)
         except:
             my_company_text: str = ''
         try:
-            my_company_contact: str = DIV.find('div', attrs={
-                'class': 'serp-meta__item'}).text
+            my_company_contact: str = DIV.find('div', attrs={'class': 'ads-visurl'}).text
+            contact: str = my_company_contact
+            contact = contact[len(contact) - len('0 (000) 000-00-00'):].strip()
+            contact = re.sub(r'\D', '', contact, count=0)
+            if contact.isdigit():
+                my_company_contact = my_company_contact[len(my_company_contact) - len('0 (000) 000-00-00'):]
+            else:
+                my_company_contact = ''
             print('company_contact ' + my_company_contact)
         except:
             my_company_contact: str = ''
+        try:
+            my_company_title: str = DIV.text.replace('Почему мне показано это объявление?', ' ')
+            my_company_title.replace('Реклама', '').strip()
+            my_company_title.replace(my_company_contact, ' ')
+            print('company_title ' + my_company_title)
+        except:
+            my_company_title: str = ''
         print(f' * * * \n')
 
         my_divs_requests.append({'rowNom': i_row,
@@ -178,11 +197,12 @@ def divs_text_shelves(my_divs, url_counter, url_ques, my_divs_requests=None):
                                  'company_sitelinks': my_company_sitelinks,
                                  'company_text': my_company_text,
                                  'company_contact': my_company_contact})
+        i_row = i_row + 1
     return my_divs_requests
 
 
 def file_writer(my_divs_requests, my_full_path):
-    if len(my_divs_requests) == 0:
+    if len(my_divs_requests) == 2:
         print(f' \n Нет данных для записи в файл! \n ')
         exit()
 
@@ -202,7 +222,7 @@ def file_writer(my_divs_requests, my_full_path):
 
                 doc_row: int = 1
                 for divs_iter in my_divs_requests:  # записываем данные
-                    wb.Worksheets('Лист1').Cells(doc_row, 1).Value = divs_iter['rowNom']
+                    wb.Worksheets('Лист1').Cells(doc_row, 1).Value = doc_row
                     wb.Worksheets('Лист1').Cells(doc_row, 2).Value = divs_iter['ques']
                     wb.Worksheets('Лист1').Cells(doc_row, 3).Value = divs_iter['company_title']
                     wb.Worksheets('Лист1').Cells(doc_row, 4).Value = divs_iter['company_cid']
@@ -237,9 +257,9 @@ def main():
     #            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
     #                          'Chrome/80.0.3987.106 Safari/537.36'}
     # базовый запрос
-    base_url: str = f'https://www.yandex.ru/search/ads?text='
+    base_url: str = f'https://www.google.com/search'
     # задаём полный путь к файлу с выгрузкой
-    full_path = r'C:\Users\DeusEx\PycharmProjects\Parser_YD_GOO\Parser_YD_GOO.xlsx'
+    full_path = r'C:\Users\DeusEx\PycharmProjects\Parser_YD_GOO\Parser_Google.xlsx'
     # задаём полный путь к файлу с ключами
     queries_path = r'C:\Users\DeusEx\PycharmProjects\Parser_YD_GOO\queries.txt'
     # задаём максимальное кооличество запросов
@@ -250,6 +270,8 @@ def main():
 
     urls = url_constructor(queries_path, base_url, region, url_max_pos)
     divs_requests = Parser_YD_GOO(urls, headers)
+    # d_path = r"C:\Users\DeusEx\PycharmProjects\Parser_YD_GOO\Divs.txt"
+    # divs_requests = divs(d_path)
     file_writer(divs_requests, full_path)
     print(f'\nПарсинг завершен\n ')
 

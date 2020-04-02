@@ -6,6 +6,6 @@ install:
   - pip install -e .
 
 script:
-  — pytest --cov=Parser_YD_GOO.py
+  — pytest --cov=Parser_Yandex.py
 after_success:
   — coveralls
