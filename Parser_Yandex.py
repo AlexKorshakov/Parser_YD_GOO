@@ -275,7 +275,7 @@ def main():
     urls = url_constructor(queries_path, base_url, region, within_time, num_doc, url_max_pos)
     divs_requests = Parser_YD_GOO(urls, headers)
     file_writer(divs_requests, full_path)
-    print(f'\nПарсинг завершен\n ')
+    print(f'Парсинг завершен ')
 
 
 if __name__ == '__main__':
