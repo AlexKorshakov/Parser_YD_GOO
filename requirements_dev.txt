@@ -8,7 +8,6 @@ lxml==4.5.0
 pip==19.0.3
 progress==1.5
 pudb==2019.2
-pywin32==227
 requests==2.23.0
 setuptools==40.8.0
 soupsieve==2.0
