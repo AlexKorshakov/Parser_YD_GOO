@@ -20,27 +20,11 @@ class Parser:
         self.query = query
         self.divs_requests: list = []  # создаем список c ответами
         self.HEADERS = gs.HEADERS
-        self.result = None
         self.divs = None
         self.ques = None
         self.url = None
-
-    def start_parser(self) -> list:
-        """основная функция парсера"""
-
-        for item_url in self.urls:
-            try:
-
-                self.ques = item_url['ques']
-                self.result = self.get_it()
-                self.divs_requests.extend(list(self.result))
-                self._time_rand(2, 4)
-
-            except ConnectionError as err:
-                l_message(gfn(), f" ConnectionError: {repr(err)}", color=Nm.bcolors.FAIL)
-                continue
-
-        return self.divs_requests
+        self.request = None
+        self.proxies = None
 
     def get_it(self):
         """ функция посылает запрос и получает ответ. Если ответ есть - передаёт на обработку"""
@@ -50,28 +34,51 @@ class Parser:
         session.mount(str(self.url), adapter_yd)
 
         try:
-            request: Response = session.get(self.url, headers=self.HEADERS, stream=True, timeout=10.24)  # запрос
-            if request.status_code == 200:  # если запрос был выполнен успешно то
-                l_message(gfn(), 'Успешный запрос!', color=Nm.bcolors.OKBLUE)
-
-                self.divs_requests = self.soup_request(request.text)  # обработка ответа сервера
-
-            else:
-                l_message(gfn(), f'Неудачный запрос! Ответ сервера {request.status_code} : {str(request.text)}',
+            self.request: Response = session.get(self.url, headers=self.HEADERS, stream=True, timeout=10.24)  # запрос
+            if self.request.status_code != 200:  # если запрос был выполнен успешно то
+                l_message(gfn(), f'Неудачный запрос! Ответ {self.request.status_code} : {str(self.request.text)}',
                           color=Nm.bcolors.FAIL)
 
-        except AttributeError as err:
-            l_message(gfn(), f" AttributeError: {repr(err)}", color=Nm.bcolors.FAIL)
-            l_message(gfn(), f'Ошибка при установке соединения! проверьте подключение!',
-                      color=Nm.bcolors.FAIL)
+            l_message(gfn(), 'Успешный запрос!', color=Nm.bcolors.OKBLUE)
 
-        return self.divs_requests
+        except Exception as err:
+            l_message(gfn(), f"Exception: {repr(err)}", color=Nm.bcolors.FAIL)
+            l_message(gfn(), f'Ошибка при установке соединения! проверьте подключение!', color=Nm.bcolors.FAIL)
 
-    def soup_request(self, request_text):
+    def get_it_with_proxi(self):
+        """ функция посылает запрос и получает ответ. Если ответ есть - передаёт на обработку"""
+
+        adapter_yd = HTTPAdapter(max_retries=3)  # максимальное количество повторов запроса в сессии
+        session = requests.Session()  # устанавливаем сессию
+        session.mount(str(self.url), adapter_yd)
+
+        # proxies = []
+        # for proxy in proxies:
+        #     response = requests.get(proxies=proxy)
+        #     if response.status_code == requests.codes['ok']:
+        #         break
+        #
+        # response.text
+
+        try:
+            self.request: Response = session.get(self.url, headers=self.HEADERS, stream=True, timeout=10.24,
+                                                 proxies=self.proxies)  # запрос
+
+            if self.request.status_code != 200:  # если запрос был выполнен успешно то
+                l_message(gfn(), f'Неудачный запрос! Ответ {self.request.status_code} : {str(self.request.text)}',
+                          color=Nm.bcolors.FAIL)
+
+            l_message(gfn(), 'Успешный запрос!', color=Nm.bcolors.OKBLUE)
+
+        except Exception as err:
+            l_message(gfn(), f"Exception: {repr(err)}", color=Nm.bcolors.FAIL)
+            l_message(gfn(), f'Ошибка при установке соединения! проверьте подключение!', color=Nm.bcolors.FAIL)
+
+    def soup_request(self, ):
         """ обработка ответа с помощью BeautifulSoup. Если есть нужные данные - передаёт на поиск нужных данных в
             divs_text_shelves """
 
-        soup = BeautifulSoup(request_text, 'lxml')  # ответ
+        soup = BeautifulSoup(self.request.text, 'lxml')  # ответ
         self.divs = soup.find_all('li', class_='serp-item')  # данные ответа
 
         if len(self.divs) == 0:
@@ -79,9 +86,6 @@ class Parser:
             return
 
         l_message(gfn(), f'Всего найдено блоков ' + str(len(self.divs)), color=Nm.bcolors.OKBLUE)
-        self.divs_text_shelves()
-
-        return self.divs_requests
 
     def divs_text_shelves(self):
         """ищем нужные данные ответа"""
@@ -105,8 +109,6 @@ class Parser:
                                        'company_text': my_company_text,
                                        'company_contact': my_company_contact})
             i_row = i_row + 1
-
-        return self.divs_requests
 
     @staticmethod
     def get_my_company_title(DIV):
