@@ -1,3 +1,4 @@
+import os
 import random
 import time
 
@@ -5,7 +6,6 @@ import requests
 from bs4 import BeautifulSoup
 from requests.adapters import HTTPAdapter
 from requests.models import Response
-from tqdm import tqdm
 
 import general_setting as gs
 from Servises import Notify_by_Message as Nm
@@ -19,12 +19,22 @@ class Parser:
         self.queries_path = queries_path
         self.query = query
         self.divs_requests: list = []  # создаем список c ответами
-        self.HEADERS = gs.HEADERS
+        self.HEADERS_MASTER = gs.HEADERS
+        self.HEADERS_SLAVE = gs.HEADERS_TEST
         self.divs = None
         self.ques = None
         self.url = None
         self.request = None
         self.proxies = None
+
+    def url_constructor(self):
+        pass
+
+    def write_to_excel(self):
+        pass
+
+    def divs_text_shelves(self):
+        pass
 
     def get_it(self):
         """ функция посылает запрос и получает ответ. Если ответ есть - передаёт на обработку"""
@@ -34,16 +44,38 @@ class Parser:
         session.mount(str(self.url), adapter_yd)
 
         try:
-            self.request: Response = session.get(self.url, headers=self.HEADERS, stream=True, timeout=10.24)  # запрос
-            if self.request.status_code != 200:  # если запрос был выполнен успешно то
-                l_message(gfn(), f'Неудачный запрос! Ответ {self.request.status_code} : {str(self.request.text)}',
-                          color=Nm.bcolors.FAIL)
+            self.request: Response = session.get(self.url, headers=self.HEADERS_MASTER, stream=True, timeout=10.24)
 
-            l_message(gfn(), 'Успешный запрос!', color=Nm.bcolors.OKBLUE)
+            if self.check_request_status_code(self.request):
+                l_message(gfn(), 'Успешный запрос!', color=Nm.bcolors.OKBLUE)
+            else:
+                self.request: Response = session.get(self.url, headers=self.HEADERS_SLAVE, stream=True,
+                                                     timeout=10.24)  # запрос
 
         except Exception as err:
             l_message(gfn(), f"Exception: {repr(err)}", color=Nm.bcolors.FAIL)
             l_message(gfn(), f'Ошибка при установке соединения! проверьте подключение!', color=Nm.bcolors.FAIL)
+
+    def check_request_status_code(self, request) -> bool:
+        if request.status_code == 200:  # если запрос был выполнен успешно то
+            l_message(gfn(), 'Успешный запрос!', color=Nm.bcolors.OKBLUE)
+            return True
+
+        elif request.status_code == 400:
+            l_message(gfn(), f'BAD request {self.url} : {request.text}', color=Nm.bcolors.FAIL)
+
+        elif request.status_code == 406:
+            l_message(gfn(), f'Client Error {self.url} : {request.text}', color=Nm.bcolors.FAIL)
+
+        elif 400 < request.status_code < 500:
+            l_message(gfn(), f'Client Error {self.url} : {request.text}', color=Nm.bcolors.FAIL)
+
+        elif 500 <= request.status_code < 600:
+            l_message(gfn(), f'Server Error {self.url} : {request.text}', color=Nm.bcolors.FAIL)
+
+        else:
+            l_message(gfn(), f'Неудачный запрос! Ответ {request.status_code} : {str(request.text)}',
+                      color=Nm.bcolors.FAIL)
 
     def get_it_with_proxi(self):
         """ функция посылает запрос и получает ответ. Если ответ есть - передаёт на обработку"""
@@ -61,7 +93,7 @@ class Parser:
         # response.text
 
         try:
-            self.request: Response = session.get(self.url, headers=self.HEADERS, stream=True, timeout=10.24,
+            self.request: Response = session.get(self.url, headers=self.HEADERS_MASTER, stream=True, timeout=10.24,
                                                  proxies=self.proxies)  # запрос
 
             if self.request.status_code != 200:  # если запрос был выполнен успешно то
@@ -78,129 +110,15 @@ class Parser:
         """ обработка ответа с помощью BeautifulSoup. Если есть нужные данные - передаёт на поиск нужных данных в
             divs_text_shelves """
 
-        soup = BeautifulSoup(self.request.text, 'lxml')  # ответ
-        self.divs = soup.find_all('li', class_='serp-item')  # данные ответа
+        if hasattr(self.request, 'text') and self.request.text != '':
+            soup = BeautifulSoup(self.request.text, 'lxml')  # ответ
+            self.divs = soup.find_all('li', class_='serp-item')  # данные ответа
 
-        if len(self.divs) == 0:
+        if self.divs is None:
             l_message(gfn(), 'Ответ не содержит нужных данных :(', color=Nm.bcolors.FAIL)
             return
 
         l_message(gfn(), f'Всего найдено блоков ' + str(len(self.divs)), color=Nm.bcolors.OKBLUE)
-
-    def divs_text_shelves(self):
-        """ищем нужные данные ответа"""
-
-        i_row: int = 1
-
-        for DIV in tqdm(self.divs):
-            my_company_title = self.get_my_company_title(DIV)
-            my_company_cid = self.get_my_company_cid(DIV)
-            my_company_link_1 = self.get_my_company_link_1(DIV)
-            my_company_sitelinks = self.get_my_company_sitelinks(DIV)
-            my_company_text = self.get_my_company_text(DIV)
-            my_company_contact = self.get_my_company_contact(DIV)
-
-            self.divs_requests.append({'rowNom': i_row,
-                                       'ques': self.ques,
-                                       'company_title': my_company_title,
-                                       'company_cid': my_company_cid,
-                                       'company_link_1': my_company_link_1,
-                                       'company_sitelinks': my_company_sitelinks,
-                                       'company_text': my_company_text,
-                                       'company_contact': my_company_contact})
-            i_row = i_row + 1
-
-    @staticmethod
-    def get_my_company_title(DIV):
-        """Найти и вернуть название компании"""
-
-        try:
-            my_company_title: str = DIV.find('h2', attrs={
-                'class': "organic__title-wrapper typo typo_text_l typo_line_m"}).text.strip()
-            l_message(gfn(), f'company_title {my_company_title}', color=Nm.bcolors.OKBLUE)
-
-        except AttributeError as err:
-            l_message(gfn(), f" AttributeError: {repr(err)}", color=Nm.bcolors.FAIL)
-            my_company_title: str = 'N\A'
-
-        return my_company_title
-
-    @staticmethod
-    def get_my_company_cid(DIV):
-        """Найти и вернуть порядковый номер компании на странице."""
-
-        try:
-            my_company_cid: str = str(DIV.get('data-cid'))
-            l_message(gfn(), f'company_cid {my_company_cid}', color=Nm.bcolors.OKBLUE)
-
-        except AttributeError as err:
-            l_message(gfn(), f" AttributeError: {repr(err)}", color=Nm.bcolors.FAIL)
-            my_company_cid: str = ''
-
-        return my_company_cid
-
-    @staticmethod
-    def get_my_company_contact(DIV):
-        """Найти и вернуть контакты компании."""
-
-        try:
-            my_company_contact: str = DIV.find('div', attrs={
-                'class': 'serp-meta__item'}).text.strip()
-            l_message(gfn(), f'company_contact {my_company_contact}', color=Nm.bcolors.OKBLUE)
-
-        except AttributeError as err:
-            l_message(gfn(), f" AttributeError: {repr(err)}", color=Nm.bcolors.FAIL)
-            my_company_contact: str = 'N\A'
-
-        return my_company_contact
-
-    @staticmethod
-    def get_my_company_text(DIV):
-        """Найти и вернуть описание компании."""
-
-        try:
-            my_company_text: str = DIV.find('div', attrs={
-                'class': 'text-container typo typo_text_m typo_line_m organic__text'}).text.strip()
-            l_message(gfn(), f'company_text  {my_company_text}', color=Nm.bcolors.OKBLUE)
-
-        except AttributeError as err:
-            l_message(gfn(), f" AttributeError: {repr(err)}", color=Nm.bcolors.FAIL)
-            my_company_text: str = ''
-
-        return my_company_text
-
-    @staticmethod
-    def get_my_company_sitelinks(DIV):
-        """Найти и вернуть ссылку на сайт компании."""
-
-        try:
-            my_company_sitelinks: str = DIV.find('div', attrs={
-                'class': 'sitelinks sitelinks_size_m organic__sitelinks'}).text.strip()
-            l_message(gfn(), f'company_site_links  {my_company_sitelinks}', color=Nm.bcolors.OKBLUE)
-
-        except AttributeError as err:
-            l_message(gfn(), f" AttributeError: {repr(err)}", color=Nm.bcolors.FAIL)
-            my_company_sitelinks: str = 'N\A'
-
-        return my_company_sitelinks
-
-    @staticmethod
-    def get_my_company_link_1(DIV):
-        """Найти и вернуть быструю ссылку на сайт компании."""
-
-        try:
-            my_company_link_1: str = DIV.find('a', attrs={
-                'class': 'link link_theme_outer path__item i-bem'}).text.strip()
-            text: int = my_company_link_1.rfind('>')
-            if text > 0:
-                my_company_link_1 = my_company_link_1[0:text - 1]
-            l_message(gfn(), f'company_link_1 {my_company_link_1}', color=Nm.bcolors.OKBLUE)
-
-        except AttributeError as err:
-            l_message(gfn(), f" AttributeError: {repr(err)}", color=Nm.bcolors.FAIL)
-            my_company_link_1: str = ''
-
-        return my_company_link_1
 
     @staticmethod
     def _time_rand(t_start: int = 1, t_stop: int = 30):
@@ -211,3 +129,18 @@ class Parser:
 
         for _ in range(time_random):
             time.sleep(random.uniform(0.8, 1.2))
+
+    @staticmethod
+    def create_patch(*, path=None):
+        """ Создание папки по пути"""
+
+        os.mkdir(path)
+        l_message(gfn(), f'Файл создан в {path}', color=Nm.bcolors.OKBLUE)
+
+    @staticmethod
+    def check_folder(*, path: str) -> bool:
+        """  Проверка файл или каталог """
+
+        if not os.path.exists(path):
+            l_message(gfn(), f'Файл не найден', color=Nm.bcolors.OKBLUE)
+            return False

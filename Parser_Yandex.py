@@ -1,130 +1,23 @@
-import os
-
-import win32com.client
 from requests.exceptions import ConnectionError
-from win32com.universal import com_error
+from tqdm import tqdm
 
 import general_setting as gs
 from Parser import Parser
 from Servises import Notify_by_Message as Nm
 from Servises.Notify_by_Message import get_function_name as gfn
 from Servises.Notify_by_Message import l_message
+from Servises.Writer_xlsx import Writer_to_xlsx
 from Servises.timeit import timeit
 
 PASSED = False
-
-
-class Writer_to_xlsx:
-    def __init__(self, divs_requests, full_path_to_file):
-        self.divs_requests = divs_requests
-        self.excel_app = None
-        self.wbook = None
-        self.full_path_to_file = full_path_to_file
-
-    def file_writer(self):
-        """Записываем данные в файл Excel."""
-
-        if len(self.divs_requests) == 0:
-            l_message(gfn(), f' \n Нет данных для записи в файл! \n ', color=Nm.bcolors.FAIL)
-            return
-
-        self.insert_headers_divs_requests()
-        excel_app, wbook = self.create_workbook()
-
-        if __debug__ and not PASSED:
-            assert excel_app is not None, 'Не удалось подключится к Ecxel'
-            assert wbook is not None, 'Не удалось создать книгу'
-
-        try:
-            self._write_to_sheet()
-            wbook.Close(True, self.full_path_to_file)  # сохраняем изменения и закрываем
-            self.excel_app_quit()
-
-        except Exception as err:
-            l_message(gfn(), f" Exception: {repr(err)}", color=Nm.bcolors.FAIL)
-            l_message(gfn(), 'Не удалось записать данные', color=Nm.bcolors.FAIL)
-            self.excel_app_quit()
-            return
-
-    def _write_to_sheet(self):
-        """Запись данных на лист."""
-
-        l_message(gfn(), 'Начало записи данных в файл', color=Nm.bcolors.OKBLUE)
-        doc_row: int = 1
-        for divs_iter in self.divs_requests:  # записываем данные
-
-            if doc_row == 1:
-                self.wbook.Worksheets.Item(1).Cells(doc_row, 1).Value = divs_iter['rowNom']
-            else:
-                self.wbook.Worksheets.Item(1).Cells(doc_row, 1).Value = doc_row - 1
-            self.wbook.Worksheets.Item(1).Cells(doc_row, 2).Value = divs_iter['ques']
-            self.wbook.Worksheets.Item(1).Cells(doc_row, 3).Value = divs_iter['company_title']
-            self.wbook.Worksheets.Item(1).Cells(doc_row, 4).Value = divs_iter['company_cid']
-            self.wbook.Worksheets.Item(1).Cells(doc_row, 5).Value = divs_iter['company_link_1']
-            self.wbook.Worksheets.Item(1).Cells(doc_row, 6).Value = divs_iter['company_sitelinks']
-            self.wbook.Worksheets.Item(1).Cells(doc_row, 7).Value = divs_iter['company_text']
-            self.wbook.Worksheets.Item(1).Cells(doc_row, 8).Value = divs_iter['company_contact']
-            doc_row += 1
-        l_message(gfn(), 'Данные записаны', color=Nm.bcolors.OKBLUE)
-
-    def insert_headers_divs_requests(self):
-        """Создание заголовков в list с распарсенными данными."""
-
-        return self.divs_requests.insert(0, gs.headers_tab)
-
-    def create_workbook(self):
-        """ Создание обектов приложения Excel и обьекта страницы."""
-
-        try:
-            self.excel_app = win32com.client.gencache.EnsureDispatch('Excel.Application')
-            self.excel_app_start()
-
-            if os.path.exists(self.full_path_to_file):  # файл excel существует то удаляем
-                os.remove(self.full_path_to_file)
-
-            self.wbook = self.excel_app.Workbooks.Add()
-            self.wbook.SaveAs(self.full_path_to_file)
-            l_message(gfn(), f'Книга создана в {self.full_path_to_file}', color=Nm.bcolors.OKBLUE)
-
-            self.wbook = self.excel_app.Workbooks.Open(self.full_path_to_file)
-
-        except com_error as err:
-            l_message(gfn(), f" pywintypes.com_error: {repr(err)}", color=Nm.bcolors.FAIL)
-
-        except TypeError as err:
-            l_message(gfn(), f"  TypeError: {repr(err)}", color=Nm.bcolors.FAIL)
-            try:
-                self.wbook.Close(False)  # save the workbook
-                self.excel_app_quit()
-                l_message(gfn(), "**** Аварийное завершение программы ****", color=Nm.bcolors.FAIL)
-
-            except AttributeError as err:
-                l_message(gfn(), f" AttributeError: {repr(err)}", color=Nm.bcolors.FAIL)
-                quit()
-
-        return self.excel_app, self.wbook
-
-    def excel_app_start(self):
-        """ Старт приложения Excel"""
-
-        self.excel_app.DisplayAlerts = False  # отключаем обновление экрана
-        self.excel_app.Visible = False
-        self.excel_app.ScreenUpdating = False
-
-    def excel_app_quit(self):
-        """Выход из приложения Excel"""
-
-        self.excel_app.DisplayAlerts = True  # отключаем обновление экрана
-        self.excel_app.Visible = True
-        self.excel_app.ScreenUpdating = True
-        self.excel_app.Quit()
 
 
 class Parser_YD(Parser):
 
     def __init__(self, *, urls):
         super(Parser, self).__init__()
-        self.HEADERS = gs.HEADERS
+        self.HEADERS_MASTER = gs.HEADERS
+        self.HEADERS_SLAVE = gs.HEADERS_TEST
         self.urls = urls
         self.divs_requests: list = []
         self.result: list = []
@@ -143,8 +36,10 @@ class Parser_YD(Parser):
                 self.ques = item_url['ques']
                 self.get_it()
                 self.soup_request()  # обработка ответа сервера
-                self.divs_text_shelves()
-                self.result.extend(list(self.divs_requests))
+
+                if self.divs is not None:
+                    self.divs_text_shelves()
+                    self.result.extend(list(self.divs_requests))
                 self._time_rand(2, 4)
 
             except ConnectionError as err:
@@ -156,6 +51,125 @@ class Parser_YD(Parser):
     def write_to_excel(self):
         file_writer = Writer_to_xlsx(self.divs_requests, gs.full_path)
         file_writer.file_writer()
+
+    def divs_text_shelves(self):
+        """ищем нужные данные ответа"""
+
+        i_row: int = 1
+        for DIV in tqdm(self.divs):
+            my_company_title = self.get_my_company_title(DIV)
+            my_company_cid = self.get_my_company_cid(DIV)
+            my_company_link_1 = self.get_my_company_link_1(DIV)
+            my_company_sitelinks = self.get_my_company_sitelinks(DIV)
+            my_company_text = self.get_my_company_text(DIV)
+            my_company_contact = self.get_my_company_contact(DIV)
+
+            self.divs_requests.append({'rowNom': i_row,
+                                       'ques': self.ques,
+                                       'company_title': my_company_title,
+                                       'company_cid': my_company_cid,
+                                       'company_link_1': my_company_link_1,
+                                       'company_sitelinks': my_company_sitelinks,
+                                       'company_text': my_company_text,
+                                       'company_contact': my_company_contact})
+            i_row = i_row + 1
+
+    @staticmethod
+    def get_my_company_title(DIV):
+        """Найти и вернуть название компании"""
+
+        try:
+            my_company_title: str = DIV.find('h2', attrs={
+                'class': "organic__title-wrapper typo typo_text_l typo_line_m"}).text.strip()
+            l_message(gfn(), f'company_title {my_company_title}', color=Nm.bcolors.OKBLUE)
+
+        except AttributeError as err:
+            l_message(gfn(), f" AttributeError: {repr(err)}", color=Nm.bcolors.FAIL)
+            my_company_title: str = 'N\A'
+
+        return my_company_title
+
+    @staticmethod
+    def get_my_company_cid(DIV):
+        """Найти и вернуть порядковый номер компании на странице."""
+
+        try:
+            my_company_cid: str = str(DIV.get('data-cid'))
+            l_message(gfn(), f'company_cid {my_company_cid}', color=Nm.bcolors.OKBLUE)
+
+        except AttributeError as err:
+            l_message(gfn(), f" AttributeError: {repr(err)}", color=Nm.bcolors.FAIL)
+            my_company_cid: str = ''
+
+        return my_company_cid
+
+    @staticmethod
+    def get_my_company_contact(DIV):
+        """Найти и вернуть контакты компании."""
+
+        try:
+            my_company_contact: str = DIV.find('div', attrs={
+                'class': 'serp-meta__item'}).text.strip()
+
+            text: int = my_company_contact.rfind('+')
+            if text > 0:
+                my_company_contact = my_company_contact[text:]
+
+            l_message(gfn(), f'company_contact {my_company_contact}', color=Nm.bcolors.OKBLUE)
+
+        except AttributeError as err:
+            l_message(gfn(), f" AttributeError: {repr(err)}", color=Nm.bcolors.FAIL)
+            my_company_contact: str = 'N\A'
+
+        return my_company_contact
+
+    @staticmethod
+    def get_my_company_text(DIV):
+        """Найти и вернуть описание компании."""
+
+        try:
+            my_company_text: str = DIV.find('div', attrs={
+                'class': 'text-container typo typo_text_m typo_line_m organic__text'}).text.strip()
+            l_message(gfn(), f'company_text  {my_company_text}', color=Nm.bcolors.OKBLUE)
+
+        except AttributeError as err:
+            l_message(gfn(), f" AttributeError: {repr(err)}", color=Nm.bcolors.FAIL)
+            my_company_text: str = ''
+
+        return my_company_text
+
+    @staticmethod
+    def get_my_company_sitelinks(DIV):
+        """Найти и вернуть ссылку на сайт компании."""
+
+        try:
+            my_company_sitelinks: str = DIV.find('div', attrs={
+                'class': 'sitelinks sitelinks_size_m organic__sitelinks'}).text.strip()
+            l_message(gfn(), f'company_site_links  {my_company_sitelinks}', color=Nm.bcolors.OKBLUE)
+
+        except AttributeError as err:
+            l_message(gfn(), f" AttributeError: {repr(err)}", color=Nm.bcolors.FAIL)
+            my_company_sitelinks: str = 'N\A'
+
+        return my_company_sitelinks
+
+    @staticmethod
+    def get_my_company_link_1(DIV):
+        """Найти и вернуть быструю ссылку на сайт компании."""
+
+        try:
+            my_company_link_1: str = DIV.find('a', attrs={
+                'class': 'link link_theme_outer path__item i-bem'}).text.strip()
+            text: int = my_company_link_1.rfind('›')
+            if text > 0:
+                my_company_link_1 = my_company_link_1[0:text]
+            l_message(gfn(), f'company_link_1 {my_company_link_1}', color=Nm.bcolors.OKBLUE)
+
+        except AttributeError as err:
+            l_message(gfn(), f" AttributeError: {repr(err)}", color=Nm.bcolors.FAIL)
+            my_company_link_1: str = ''
+
+        return my_company_link_1
 
 
 @timeit

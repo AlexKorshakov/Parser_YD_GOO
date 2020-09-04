@@ -11,11 +11,26 @@ from Servises.log_main import log_visrec
 
 __version__ = '2'
 __all__ = 'Gmessege'
+__target_name__ = 'Parser_Yandex'
 __app_name__ = 'Parser'
 
 VIS_LOG = False  # True -  Отображение хода процесса в консоли
 PRINT_LOG = True  # True -  Запись лога в файл
-currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))) + '\\' + __app_name__
+
+
+def walk_up_folder(path, depth=1):
+    """Получение пути на заданный уровень от местонахождения текущего файла."""
+
+    _cur_depth = 1
+    while _cur_depth < depth:
+        path = os.path.dirname(path)
+        _cur_depth += 1
+    return path
+
+
+this_dir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+currentdir = walk_up_folder(this_dir, depth=2)
+currentdir = currentdir + '\\' + __target_name__
 
 
 class bcolors:  # colors in console
