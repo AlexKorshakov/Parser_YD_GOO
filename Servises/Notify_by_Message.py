@@ -170,4 +170,4 @@ def l_message(name=None, value=None, color=None, r_log=None, r_print=None):
 
 
 def get_function_name():
-    return traceback.extract_stack(None, 2)[0][2]
+    return str(traceback.extract_stack(None, 2)[0][2])

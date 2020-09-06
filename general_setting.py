@@ -1,9 +1,11 @@
 import inspect
 import os
+from datetime import datetime
 from random import choice
 
 timeout = 180
 max_proxies = 25  # максимальное кооличество прокси
+request_timeout = 10.24
 
 HOST: str = 'https://yandex.ru'
 
@@ -46,11 +48,17 @@ current_dir = str(os.path.dirname(os.path.abspath(inspect.getfile(inspect.curren
 # базовый запрос
 base_url: str = f'https://www.yandex.ru/search/ads?text='
 
+date_today = datetime.today().strftime("%d.%m.%Y")
+
+report_name = '\Parser_Yandex.xlsx'
+
 # задаём полный путь к файлу с выгрузкой
-full_path = current_dir + '\Parser_Yandex.xlsx'
+full_path = current_dir + '\\' + r'Parser_Yandex ' + date_today + '.xlsx'
 
 # задаём полный путь к файлу с ключами
 queries_path = 'queries.txt'
+
+proxy_path = 'proxieslist.txt'
 
 # задаём максимальное кооличество запросов
 url_max_pos = 2

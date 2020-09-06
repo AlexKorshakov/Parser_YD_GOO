@@ -21,7 +21,7 @@ async def saveproxies(proxies, filename: str):
     :param filename: полный путь к файлу для записи и хранения прокси: str
     """
 
-    l_message(gfn(), f'proxies {proxies}', color=Nm.bcolors.OKBLUE)
+    l_message(gfn(), f'proxyes {proxies}', color=Nm.bcolors.OKBLUE)
     with open(filename, 'w') as file:
         while True:
             proxy = await proxies.get()
@@ -167,13 +167,12 @@ def time_rand(t_start: int = 1, t_stop: int = 30):
         time.sleep(random.uniform(0.8, 1.2))
 
 
-
 def main():
     """Основная функция"""
 
     l_message(gfn(), '\n**** Start ****\n', color=Nm.bcolors.OKBLUE)
 
-    for _ in range(5):
+    for _ in range(10):
         proxies_list_get = get_proxies(limit=gs.max_proxies)  # собираем прокси с помощью Broker
         get_proxy = check_proxies(proxies_list_get)  # проверяем прокси
         appload_proxies_list(get_proxy)  # добавляем проверенные прокси в proxies_list

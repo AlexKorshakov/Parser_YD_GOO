@@ -1,277 +1,578 @@
-04.09.2020 21.44.46 :: Параметр *** main *** Значение : 
+07.09.2020 02.26.20 :: Параметр *** main *** Значение : 
 **** Start ****
 
-04.09.2020 21.44.46 :: Параметр *** url_constructor *** Значение : https://www.yandex.ru/search/ads?text=﻿бухгалтерские%20услуги&lr=35&within=5&lang=ru
-04.09.2020 21.44.46 :: Параметр *** url_constructor *** Значение : https://www.yandex.ru/search/ads?text=﻿бухгалтерские%20услуги&lr=35&within=5&lang=ru
-04.09.2020 21.44.46 :: Параметр *** url_constructor *** Значение : https://www.yandex.ru/search/ads?text=бухгалтерский%20аудит&lr=35&within=5&lang=ru
-04.09.2020 21.44.46 :: Параметр *** url_constructor *** Значение : https://www.yandex.ru/search/ads?text=бухгалтерский%20аудит&lr=35&within=5&lang=ru
-04.09.2020 21.44.46 :: Параметр *** start_work *** Значение : 
+07.09.2020 02.26.20 :: Параметр *** url_constructor *** Значение : https://www.yandex.ru/search/ads?text=﻿бухгалтерские%20услуги&lr=35&within=5&lang=ru
+07.09.2020 02.26.20 :: Параметр *** url_constructor *** Значение : https://www.yandex.ru/search/ads?text=﻿бухгалтерские%20услуги&lr=35&within=5&lang=ru&p=1
+07.09.2020 02.26.20 :: Параметр *** url_constructor *** Значение : https://www.yandex.ru/search/ads?text=бухгалтерский%20аудит&lr=35&within=5&lang=ru
+07.09.2020 02.26.20 :: Параметр *** url_constructor *** Значение : https://www.yandex.ru/search/ads?text=бухгалтерский%20аудит&lr=35&within=5&lang=ru&p=1
+07.09.2020 02.26.20 :: Параметр *** start_work *** Значение : 
 Запрос номер: 1 
 
-04.09.2020 21.44.46 :: Параметр *** check_request_status_code *** Значение : Client Error https://www.yandex.ru/search/ads?text=﻿бухгалтерские%20услуги&lr=35&within=5&lang=ru : 
-04.09.2020 21.44.46 :: Параметр *** soup_request *** Значение : Всего найдено блоков 10
-04.09.2020 21.44.46 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги в Краснодаре – Снизим затраты!
-04.09.2020 21.44.46 :: Параметр *** get_my_company_cid *** Значение : company_cid 0
-04.09.2020 21.44.46 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 buh-krasnodar.ru
-04.09.2020 21.44.46 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_text *** Значение : company_text  Ведение бухгалтерии на аутсорсинге в Краснодаре! Снизим затраты!Узнайте цены онлайн! · Нулевая отчетность. Постановка учета. Аудит. Аутсорсинг. Консалтинг
-04.09.2020 21.44.46 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (909) 458-06-43
-04.09.2020 21.44.46 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги – Скидка 50% на 1 мес.!
-04.09.2020 21.44.46 :: Параметр *** get_my_company_cid *** Значение : company_cid 1
-04.09.2020 21.44.46 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 бухгалтерские-услуги1.рф
-04.09.2020 21.44.46 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_text *** Значение : company_text  Оказываем бухгалтерские услуги по Краснодарскому краю! МЫ ПРОФЕССИОНАЛЫ! Позвоните! · Без штрафов. 17 бухгалтеров. Сэкономьте на аутсорсинге. Любая отчетность
-04.09.2020 21.44.46 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (861) 204-19-67
-04.09.2020 21.44.46 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги! – От 2 100 руб./мес!
-04.09.2020 21.44.46 :: Параметр *** get_my_company_cid *** Значение : company_cid 2
-04.09.2020 21.44.46 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 moedelo.org
-04.09.2020 21.44.46 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_text *** Значение : company_text  Снижаем Налоги, расходы! Прогноз рисков. Бухгалтер из вашей отрасли! Забудь о рутине! · Поддержка 24/7. Страховка ответственности. Сдаем отчетность. 11 лет на рынке. Экономия на фот
-04.09.2020 21.44.46 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (800) 200-77-27
-04.09.2020 21.44.46 :: Параметр *** get_my_company_title *** Значение : company_title Услуги бухгалтера для ИП и ООО – 10 лет опыта
-04.09.2020 21.44.46 :: Параметр *** get_my_company_cid *** Значение : company_cid 3
-04.09.2020 21.44.46 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 buhgalter123.com
-04.09.2020 21.44.46 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_text *** Значение : company_text  От 700₽. Профильное высшее образование. - 80% на первый месяц обслуживания. ЕНДВ, УДС. · Команда профессионалов. Качественно. Надежно. Выгодно
-04.09.2020 21.44.46 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (928) 192-44-27
-04.09.2020 21.44.46 :: Параметр *** get_my_company_title *** Значение : company_title Услуги бухгалтера для ИП и ООО – Под ключ!
-04.09.2020 21.44.46 :: Параметр *** get_my_company_cid *** Значение : company_cid 4
-04.09.2020 21.44.46 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 listooo23.ru
-04.09.2020 21.44.46 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_text *** Значение : company_text  Расскажем как сейчас можно сэкономить до 40% налогов. Узнай подробности на сайте! · работа по договору. аутсорсинг под ключ. гарантия на результат
-04.09.2020 21.44.46 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (918) 315-96-46
-04.09.2020 21.44.46 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги – Заказать по выгодным ценам!
-04.09.2020 21.44.46 :: Параметр *** get_my_company_cid *** Значение : company_cid 5
-04.09.2020 21.44.46 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 vashbugalter.ru
-04.09.2020 21.44.46 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_text *** Значение : company_text  Скидка 10% при заказе с сайта. Выезд бухгалтера по Краснодару - бесплатно, звоните! · Опыт более 10 лет. Гарантия. Минимальные сроки. Консультация бухгалтера
-04.09.2020 21.44.46 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (861) 243-00-67
-04.09.2020 21.44.46 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги – ООО "НФЦ 123"
-04.09.2020 21.44.46 :: Параметр *** get_my_company_cid *** Значение : company_cid 6
-04.09.2020 21.44.46 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 nfc123.ru
-04.09.2020 21.44.46 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_text *** Значение : company_text  Услуги "под ключ" для ИП и ООО в Краснодаре: учет, налоги, регистрация, ликвидация. · Поддержка 24/7. Доступные цены. Опытные специалисты. Услуги под ключ
-04.09.2020 21.44.46 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (918) 088-26-88
-04.09.2020 21.44.46 :: Параметр *** get_my_company_title *** Значение : company_title Бух обслуживание – от 3500 руб. - Жми!
-04.09.2020 21.44.46 :: Параметр *** get_my_company_cid *** Значение : company_cid 7
-04.09.2020 21.44.46 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 вызови-бухгалтера.рф
-04.09.2020 21.44.46 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_text *** Значение : company_text  Комплексное Бухгалтерское Обслуживание под Ключ. Делаем Аудит. Оптимизируем Налоги. · Индивидуальный подход. Финансовые гарантии. Нулевая отчетность
-04.09.2020 21.44.46 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (918) 146-66-36
-04.09.2020 21.44.46 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги – Ищите на Яндекс.Услугах
-04.09.2020 21.44.46 :: Параметр *** get_my_company_cid *** Значение : company_cid 8
-04.09.2020 21.44.46 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 uslugi.yandex.ru
-04.09.2020 21.44.46 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_text *** Значение : company_text  Сравните реальные цены и отзывы, и выберите подходящего специалиста. · Не берем комиссию. 4 500 Услуг. 450 000 Исполнителей. Система рейтингов
-04.09.2020 21.44.46 :: Параметр *** get_my_company_contact *** Значение : company_contact АдресКраснодар
-04.09.2020 21.44.46 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерское обслуживание – от 1000 рублей!
-04.09.2020 21.44.46 :: Параметр *** get_my_company_cid *** Значение : company_cid 9
-04.09.2020 21.44.46 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 bk-konsalt.ru
-04.09.2020 21.44.46 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_text *** Значение : company_text  Бухгалтерское обслуживание в Краснодаре! Низкие цены! Для ИП и ООО! · Ответственность. Качество. Оперативность
-04.09.2020 21.44.46 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (905) 401-23-98
-04.09.2020 21.44.46 :: Параметр *** _time_rand *** Значение : Время ожидания нового запроса time_rand  3 sec
-04.09.2020 21.44.46 :: Параметр *** start_work *** Значение : 
+07.09.2020 02.26.20 :: Параметр *** check_request_status_code *** Значение : Успешный запрос!
+07.09.2020 02.26.20 :: Параметр *** get_response *** Значение : Успешный запрос!
+07.09.2020 02.26.20 :: Параметр *** soup_request *** Значение : Всего найдено блоков 10
+07.09.2020 02.26.20 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги – Скидка 50% на 1 мес.!
+07.09.2020 02.26.20 :: Параметр *** get_my_company_cid *** Значение : company_cid 0
+07.09.2020 02.26.20 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 бухгалтерские-услуги1.рф
+07.09.2020 02.26.20 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.26.20 :: Параметр *** get_my_company_text *** Значение : company_text  Оказываем бухгалтерские услуги по Краснодарскому краю! МЫ ПРОФЕССИОНАЛЫ! Позвоните! · Без штрафов. 17 бухгалтеров. Сэкономьте на аутсорсинге. Любая отчетность
+07.09.2020 02.26.20 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (861) 204-19-67
+07.09.2020 02.26.20 :: Параметр *** get_my_company_title *** Значение : company_title Аутсорсинг бухгалтерских услуг – Оставить заявку онлайн
+07.09.2020 02.26.20 :: Параметр *** get_my_company_cid *** Значение : company_cid 1
+07.09.2020 02.26.20 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 sber-solutions.ru
+07.09.2020 02.26.20 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.26.20 :: Параметр *** get_my_company_text *** Значение : company_text  Ведем все участки налогового и бухгалтерского учёта по международным стандартам! · Экспертиза. Финансовые гарантии. Более 25 лет опыта. Безопасность
+07.09.2020 02.26.20 :: Параметр *** get_my_company_contact *** Значение : company_contact 8 (800) 700-XX-XX Показать8 (800) 700-13-79
+07.09.2020 02.26.20 :: Параметр *** get_my_company_title *** Значение : company_title Услуги бухгалтера для ИП и ООО – 10 лет опыта
+07.09.2020 02.26.20 :: Параметр *** get_my_company_cid *** Значение : company_cid 2
+07.09.2020 02.26.20 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 buhgalter123.com
+07.09.2020 02.26.20 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.26.20 :: Параметр *** get_my_company_text *** Значение : company_text  От 700₽. Профильное высшее образование. - 80% на первый месяц обслуживания. ЕНДВ, УДС. · Команда профессионалов. Качественно. Надежно. Выгодно
+07.09.2020 02.26.20 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (928) 192-44-27
+07.09.2020 02.26.20 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги в Краснодаре – Под ключ!
+07.09.2020 02.26.20 :: Параметр *** get_my_company_cid *** Значение : company_cid 3
+07.09.2020 02.26.20 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 universal-online.ru
+07.09.2020 02.26.20 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.26.20 :: Параметр *** get_my_company_text *** Значение : company_text  Услуги под ключ. Бухгалтерские услуги для ИП и ЮЛ. Работаем в Краснодаре. Звони! · Аутсорсинг. Качественно. Оперативно. Под ключ
+07.09.2020 02.26.20 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (861) 215-96-56
+07.09.2020 02.26.20 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги – Ищите на Яндекс.Услугах
+07.09.2020 02.26.20 :: Параметр *** get_my_company_cid *** Значение : company_cid 4
+07.09.2020 02.26.20 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 uslugi.yandex.ru
+07.09.2020 02.26.20 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.26.20 :: Параметр *** get_my_company_text *** Значение : company_text  Сравните реальные цены и отзывы, и выберите подходящего специалиста. · Не берем комиссию. 4 500 Услуг. 450 000 Исполнителей. Система рейтингов
+07.09.2020 02.26.20 :: Параметр *** get_my_company_contact *** Значение : company_contact АдресКраснодар
+07.09.2020 02.26.20 :: Параметр *** get_my_company_title *** Значение : company_title Клининговые услуги. Краснодар и край. – Выгодные цены!
+07.09.2020 02.26.20 :: Параметр *** get_my_company_cid *** Значение : company_cid 5
+07.09.2020 02.26.20 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 клининг-краснодар.рф
+07.09.2020 02.26.20 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.26.20 :: Параметр *** get_my_company_text *** Значение : company_text  Персональный расчет стоимости. Любая сложность. Команда профессионалов. Сжатые сроки. · Гарантия. Индивидуальный подход. Консультации. Высокое качество
+07.09.2020 02.26.20 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (861) 290-29-04
+07.09.2020 02.26.20 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги! – От 2 100 руб./мес!
+07.09.2020 02.26.20 :: Параметр *** get_my_company_cid *** Значение : company_cid 6
+07.09.2020 02.26.20 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 moedelo.org
+07.09.2020 02.26.20 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.26.20 :: Параметр *** get_my_company_text *** Значение : company_text  Снижаем Налоги, расходы! Прогноз рисков. Бухгалтер из вашей отрасли! Забудь о рутине! · Поддержка 24/7. Страховка ответственности. Сдаем отчетность. 11 лет на рынке. Экономия на фот
+07.09.2020 02.26.20 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (800) 200-77-27
+07.09.2020 02.26.20 :: Параметр *** get_my_company_title *** Значение : company_title бухгалтерские услуги. Звоните! – Бух учёт. Налоговый учёт.
+07.09.2020 02.26.20 :: Параметр *** get_my_company_cid *** Значение : company_cid 7
+07.09.2020 02.26.20 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 нетпрофит.рф
+07.09.2020 02.26.20 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.26.20 :: Параметр *** get_my_company_text *** Значение : company_text  Любая сфера деятельности Вашего бизнеса. ОСН, ЕСХН, УСН, ЕНВД. Профессионально.
+07.09.2020 02.26.20 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (962) 410-76-54
+07.09.2020 02.26.20 :: Параметр *** get_my_company_title *** Значение : company_title Бух обслуживание – от 3500 руб. - Жми!
+07.09.2020 02.26.20 :: Параметр *** get_my_company_cid *** Значение : company_cid 8
+07.09.2020 02.26.20 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 вызови-бухгалтера.рф
+07.09.2020 02.26.20 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.26.20 :: Параметр *** get_my_company_text *** Значение : company_text  Комплексное Бухгалтерское Обслуживание под Ключ. Делаем Аудит. Оптимизируем Налоги. · Индивидуальный подход. Финансовые гарантии. Нулевая отчетность
+07.09.2020 02.26.20 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (918) 146-66-36
+07.09.2020 02.26.20 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги – от 700р. Краснодар!
+07.09.2020 02.26.20 :: Параметр *** get_my_company_cid *** Значение : company_cid 9
+07.09.2020 02.26.20 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 quiz.glavbuh93.ru
+07.09.2020 02.26.20 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.26.20 :: Параметр *** get_my_company_text *** Значение : company_text  Фин. отвечаем за порядок Вашей бухгалтерии. 1 мес. услуг В ПОДАРОК! Подробно на сайте. · Юр. поддержка. Расчет з/п. Учет кадров. Нулевая отчетность. Помощь с р/с
+07.09.2020 02.26.20 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (928) 665-42-52
+07.09.2020 02.26.20 :: Параметр *** _time_rand *** Значение : Время ожидания нового запроса time_rand  2 sec
+07.09.2020 02.26.20 :: Параметр *** start_work *** Значение : 
 Запрос номер: 2 
 
-04.09.2020 21.44.46 :: Параметр *** check_request_status_code *** Значение : Client Error https://www.yandex.ru/search/ads?text=﻿бухгалтерские%20услуги&lr=35&within=5&lang=ru&p=1 : 
-04.09.2020 21.44.46 :: Параметр *** soup_request *** Значение : Всего найдено блоков 10
-04.09.2020 21.44.46 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги – юридических лиц
-04.09.2020 21.44.46 :: Параметр *** get_my_company_cid *** Значение : company_cid 0
-04.09.2020 21.44.46 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 clipkrd.ru
-04.09.2020 21.44.46 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_text *** Значение : company_text  Персональные предложения по восстановлению и комплексному ведению бухгалтерии. · Всегда на связи. Без больничных. Без отпусков. Конфиденциальность. Финансовая безопасность
-04.09.2020 21.44.46 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (861) 241-50-33
-04.09.2020 21.44.46 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги – Акция! 1 месяц - 0 ₽. Звони!
-04.09.2020 21.44.46 :: Параметр *** get_my_company_cid *** Значение : company_cid 1
-04.09.2020 21.44.46 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 101vipbuh.ru
-04.09.2020 21.44.46 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_text *** Значение : company_text  Бухгалтерские услуги. Ведение УСН, ОСНО. Доступ в 1С. Любая отчетность! Сжатые сроки! · Налоговый консультант. Помогаем в спорах. Восстановим бухгалтерию. Экспресс-аудит
-04.09.2020 21.44.46 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (903) 156-34-00
-04.09.2020 21.44.46 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерский учет, аутсорсинг / balance-alliance.ru
-04.09.2020 21.44.46 :: Параметр *** get_my_company_cid *** Значение : company_cid 2
-04.09.2020 21.44.46 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 balance-alliance.ru
-04.09.2020 21.44.46 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_text *** Значение : company_text  Ведение бухгалтерского и налогового учета качественно и недорого ИП, ООО.
-04.09.2020 21.44.46 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (988) 167-42-65
-04.09.2020 21.44.46 :: Параметр *** get_my_company_title *** Значение : company_title Курсы бухгалтерского учета / vectorplus.ru
-04.09.2020 21.44.46 :: Параметр *** get_my_company_cid *** Значение : company_cid 3
-04.09.2020 21.44.46 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 vectorplus.ru
-04.09.2020 21.44.46 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_text *** Значение : company_text  Бухучет+налоги+1С. Все участки. От аудиторской компании. Запишитесь сейчас! · Преподаватели-практики. Диплом. Все занятия практические. Обучение в удобное время · 18+
-04.09.2020 21.44.46 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (918) 984-07-34
-04.09.2020 21.44.46 :: Параметр *** get_my_company_title *** Значение : company_title бухгалтерские услуги. Звоните! – Бух учёт. Налоговый учёт.
-04.09.2020 21.44.46 :: Параметр *** get_my_company_cid *** Значение : company_cid 4
-04.09.2020 21.44.46 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 нетпрофит.рф
-04.09.2020 21.44.46 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_text *** Значение : company_text  Любая сфера деятельности Вашего бизнеса. ОСН, ЕСХН, УСН, ЕНВД. Профессионально.
-04.09.2020 21.44.46 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (962) 410-76-54
-04.09.2020 21.44.46 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги в Краснодаре – для ИП / ООО / АО
-04.09.2020 21.44.46 :: Параметр *** get_my_company_cid *** Значение : company_cid 5
-04.09.2020 21.44.46 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 abkr23.ru
-04.09.2020 21.44.46 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_text *** Значение : company_text  Профессиональное оказание бухгалтерских услуг в Краснодаре для ИП, ООО и АО. Жмите! · Без лишних расходов. Главный бухгалтер. Отчетность и налоги
-04.09.2020 21.44.46 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (989) 294-60-21
-04.09.2020 21.44.46 :: Параметр *** get_my_company_title *** Значение : company_title Центр бухгалтерских услуг – Профессионально!
-04.09.2020 21.44.46 :: Параметр *** get_my_company_cid *** Значение : company_cid 6
-04.09.2020 21.44.46 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 myartemida.ru
-04.09.2020 21.44.46 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_text *** Значение : company_text  Бухгалтерское обслуживание. Аутсорсинг. Для физ. лиц, юр. лиц, ИП. Краснодарский край. · Инд. подход. Широкий спектр услуг. Удобно и надежно. Более 10 лет опыта
-04.09.2020 21.44.46 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (918) 249-90-85
-04.09.2020 21.44.46 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги в Краснодаре – для ИП и ЮЛ!
-04.09.2020 21.44.46 :: Параметр *** get_my_company_cid *** Значение : company_cid 7
-04.09.2020 21.44.46 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 universal-online.ru
-04.09.2020 21.44.46 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_text *** Значение : company_text  Услуги под ключ. Бухгалтерские услуги для ИП и ЮЛ. Работаем в Краснодаре. Звони! · Аутсорсинг. Качественно. Оперативно. Под ключ
-04.09.2020 21.44.46 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (861) 215-96-56
-04.09.2020 21.44.46 :: Параметр *** get_my_company_title *** Значение : company_title Скидки для бизнеса от Mastercard – Бизнес-Бонус
-04.09.2020 21.44.46 :: Параметр *** get_my_company_cid *** Значение : company_cid 8
-04.09.2020 21.44.46 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 business.mastercard.ru
-04.09.2020 21.44.46 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_text *** Значение : company_text  Оплачивайте услуги бизнес-картой Mastercard и получайте бонусы от наших партнёров · Регистрируйся. Копи бонусы. Получай скидки
-04.09.2020 21.44.46 :: Параметр *** get_my_company_contact *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги – Качественно. Профессионально!
-04.09.2020 21.44.46 :: Параметр *** get_my_company_cid *** Значение : company_cid 9
-04.09.2020 21.44.46 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 auditreg.ru
-04.09.2020 21.44.46 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_text *** Значение : company_text  Аудиторские, бухгалтерские и консалтинговые услуги. 15 лет опыта. Гарантия качества!
-04.09.2020 21.44.46 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (343) 310-37-77
-04.09.2020 21.44.46 :: Параметр *** _time_rand *** Значение : Время ожидания нового запроса time_rand  3 sec
-04.09.2020 21.44.46 :: Параметр *** start_work *** Значение : 
+07.09.2020 02.26.20 :: Параметр *** get_response_with_proxi *** Значение : Exception: KeyError('proxi')
+07.09.2020 02.26.20 :: Параметр *** get_response_with_proxi *** Значение : Ошибка при установке соединения! проверьте подключение!
+07.09.2020 02.27.15 :: Параметр *** main *** Значение : 
+**** Start ****
+
+07.09.2020 02.27.15 :: Параметр *** url_constructor *** Значение : https://www.yandex.ru/search/ads?text=﻿бухгалтерские%20услуги&lr=35&within=5&lang=ru
+07.09.2020 02.27.15 :: Параметр *** url_constructor *** Значение : https://www.yandex.ru/search/ads?text=﻿бухгалтерские%20услуги&lr=35&within=5&lang=ru&p=1
+07.09.2020 02.27.15 :: Параметр *** url_constructor *** Значение : https://www.yandex.ru/search/ads?text=бухгалтерский%20аудит&lr=35&within=5&lang=ru
+07.09.2020 02.27.15 :: Параметр *** url_constructor *** Значение : https://www.yandex.ru/search/ads?text=бухгалтерский%20аудит&lr=35&within=5&lang=ru&p=1
+07.09.2020 02.27.15 :: Параметр *** start_work *** Значение : 
+Запрос номер: 1 
+
+07.09.2020 02.27.15 :: Параметр *** check_request_status_code *** Значение : Успешный запрос!
+07.09.2020 02.27.15 :: Параметр *** get_response *** Значение : Успешный запрос!
+07.09.2020 02.27.15 :: Параметр *** soup_request *** Значение : Всего найдено блоков 10
+07.09.2020 02.27.15 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги – Скидка 50% на 1 мес.!
+07.09.2020 02.27.15 :: Параметр *** get_my_company_cid *** Значение : company_cid 0
+07.09.2020 02.27.15 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 бухгалтерские-услуги1.рф
+07.09.2020 02.27.15 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.27.15 :: Параметр *** get_my_company_text *** Значение : company_text  Оказываем бухгалтерские услуги по Краснодарскому краю! МЫ ПРОФЕССИОНАЛЫ! Позвоните! · Без штрафов. 17 бухгалтеров. Сэкономьте на аутсорсинге. Любая отчетность
+07.09.2020 02.27.15 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (861) 204-19-67
+07.09.2020 02.27.15 :: Параметр *** get_my_company_title *** Значение : company_title Аутсорсинг бухгалтерских услуг – Оставить заявку онлайн
+07.09.2020 02.27.15 :: Параметр *** get_my_company_cid *** Значение : company_cid 1
+07.09.2020 02.27.15 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 sber-solutions.ru
+07.09.2020 02.27.15 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.27.15 :: Параметр *** get_my_company_text *** Значение : company_text  Ведем все участки налогового и бухгалтерского учёта по международным стандартам! · Экспертиза. Финансовые гарантии. Более 25 лет опыта. Безопасность
+07.09.2020 02.27.15 :: Параметр *** get_my_company_contact *** Значение : company_contact 8 (800) 700-XX-XX Показать8 (800) 700-13-79
+07.09.2020 02.27.15 :: Параметр *** get_my_company_title *** Значение : company_title Услуги бухгалтера для ИП и ООО – 10 лет опыта
+07.09.2020 02.27.15 :: Параметр *** get_my_company_cid *** Значение : company_cid 2
+07.09.2020 02.27.15 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 buhgalter123.com
+07.09.2020 02.27.15 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.27.15 :: Параметр *** get_my_company_text *** Значение : company_text  От 700₽. Профильное высшее образование. - 80% на первый месяц обслуживания. ЕНДВ, УДС. · Команда профессионалов. Качественно. Надежно. Выгодно
+07.09.2020 02.27.15 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (928) 192-44-27
+07.09.2020 02.27.15 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги в Краснодаре – Под ключ!
+07.09.2020 02.27.15 :: Параметр *** get_my_company_cid *** Значение : company_cid 3
+07.09.2020 02.27.15 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 universal-online.ru
+07.09.2020 02.27.15 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.27.15 :: Параметр *** get_my_company_text *** Значение : company_text  Услуги под ключ. Бухгалтерские услуги для ИП и ЮЛ. Работаем в Краснодаре. Звони! · Аутсорсинг. Качественно. Оперативно. Под ключ
+07.09.2020 02.27.15 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (861) 215-96-56
+07.09.2020 02.27.15 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги – Ищите на Яндекс.Услугах
+07.09.2020 02.27.15 :: Параметр *** get_my_company_cid *** Значение : company_cid 4
+07.09.2020 02.27.15 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 uslugi.yandex.ru
+07.09.2020 02.27.15 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.27.15 :: Параметр *** get_my_company_text *** Значение : company_text  Сравните реальные цены и отзывы, и выберите подходящего специалиста. · Не берем комиссию. 4 500 Услуг. 450 000 Исполнителей. Система рейтингов
+07.09.2020 02.27.15 :: Параметр *** get_my_company_contact *** Значение : company_contact АдресКраснодар
+07.09.2020 02.27.15 :: Параметр *** get_my_company_title *** Значение : company_title Клининговые услуги. Краснодар и край. – Выгодные цены!
+07.09.2020 02.27.15 :: Параметр *** get_my_company_cid *** Значение : company_cid 5
+07.09.2020 02.27.15 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 клининг-краснодар.рф
+07.09.2020 02.27.15 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.27.15 :: Параметр *** get_my_company_text *** Значение : company_text  Персональный расчет стоимости. Любая сложность. Команда профессионалов. Сжатые сроки. · Гарантия. Индивидуальный подход. Консультации. Высокое качество
+07.09.2020 02.27.15 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (861) 290-29-04
+07.09.2020 02.27.15 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги! – От 2 100 руб./мес!
+07.09.2020 02.27.15 :: Параметр *** get_my_company_cid *** Значение : company_cid 6
+07.09.2020 02.27.15 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 moedelo.org
+07.09.2020 02.27.15 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.27.15 :: Параметр *** get_my_company_text *** Значение : company_text  Снижаем Налоги, расходы! Прогноз рисков. Бухгалтер из вашей отрасли! Забудь о рутине! · Поддержка 24/7. Страховка ответственности. Сдаем отчетность. 11 лет на рынке. Экономия на фот
+07.09.2020 02.27.15 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (800) 200-77-27
+07.09.2020 02.27.15 :: Параметр *** get_my_company_title *** Значение : company_title бухгалтерские услуги. Звоните! – Бух учёт. Налоговый учёт.
+07.09.2020 02.27.15 :: Параметр *** get_my_company_cid *** Значение : company_cid 7
+07.09.2020 02.27.15 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 нетпрофит.рф
+07.09.2020 02.27.15 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.27.15 :: Параметр *** get_my_company_text *** Значение : company_text  Любая сфера деятельности Вашего бизнеса. ОСН, ЕСХН, УСН, ЕНВД. Профессионально.
+07.09.2020 02.27.15 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (962) 410-76-54
+07.09.2020 02.27.15 :: Параметр *** get_my_company_title *** Значение : company_title Бух обслуживание – от 3500 руб. - Жми!
+07.09.2020 02.27.15 :: Параметр *** get_my_company_cid *** Значение : company_cid 8
+07.09.2020 02.27.15 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 вызови-бухгалтера.рф
+07.09.2020 02.27.15 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.27.15 :: Параметр *** get_my_company_text *** Значение : company_text  Комплексное Бухгалтерское Обслуживание под Ключ. Делаем Аудит. Оптимизируем Налоги. · Индивидуальный подход. Финансовые гарантии. Нулевая отчетность
+07.09.2020 02.27.15 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (918) 146-66-36
+07.09.2020 02.27.15 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги – от 700р. Краснодар!
+07.09.2020 02.27.15 :: Параметр *** get_my_company_cid *** Значение : company_cid 9
+07.09.2020 02.27.15 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 quiz.glavbuh93.ru
+07.09.2020 02.27.15 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.27.15 :: Параметр *** get_my_company_text *** Значение : company_text  Фин. отвечаем за порядок Вашей бухгалтерии. 1 мес. услуг В ПОДАРОК! Подробно на сайте. · Юр. поддержка. Расчет з/п. Учет кадров. Нулевая отчетность. Помощь с р/с
+07.09.2020 02.27.15 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (928) 665-42-52
+07.09.2020 02.27.15 :: Параметр *** _time_rand *** Значение : Время ожидания нового запроса time_rand  4 sec
+07.09.2020 02.27.15 :: Параметр *** start_work *** Значение : 
+Запрос номер: 2 
+
+07.09.2020 02.27.15 :: Параметр *** get_response_with_proxi *** Значение : proxy {'http': 'http://83.171.114.92:45822', 'https': 'http://83.171.114.92:45822'}
+07.09.2020 02.27.15 :: Параметр *** get_response_with_proxi *** Значение : ConnectTimeout: ConnectTimeout(MaxRetryError("HTTPSConnectionPool(host='www.yandex.ru', port=443): Max retries exceeded with url: /search/ads?text=%EF%BB%BF%D0%B1%D1%83%D1%85%D0%B3%D0%B0%D0%BB%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8&lr=35&within=5&lang=ru (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x042DD4D8>, 'Connection to 83.171.114.92 timed out. (connect timeout=20.48)'))"))
+07.09.2020 02.27.15 :: Параметр *** get_response_with_proxi *** Значение : Connection to proxi timed out
+07.09.2020 02.27.15 :: Параметр *** get_response_with_proxi *** Значение : Время request: 20484.00 ms или 20.48 сек.
+07.09.2020 02.27.15 :: Параметр *** get_response_with_proxi *** Значение : proxy {'http': 'http://90.189.110.170:3128', 'https': 'http://90.189.110.170:3128'}
+07.09.2020 02.27.15 :: Параметр *** get_response_with_proxi *** Значение : Время request: 17906.00 ms или 17.91 сек.
+07.09.2020 02.27.15 :: Параметр *** check_request_status_code *** Значение : Успешный запрос!
+07.09.2020 02.27.15 :: Параметр *** get_response_with_proxi *** Значение : Успешный запрос!
+07.09.2020 02.30.56 :: Параметр *** main *** Значение : 
+**** Start ****
+
+07.09.2020 02.30.56 :: Параметр *** url_constructor *** Значение : https://www.yandex.ru/search/ads?text=﻿бухгалтерские%20услуги&lr=35&within=5&lang=ru
+07.09.2020 02.30.56 :: Параметр *** url_constructor *** Значение : https://www.yandex.ru/search/ads?text=﻿бухгалтерские%20услуги&lr=35&within=5&lang=ru&p=1
+07.09.2020 02.30.56 :: Параметр *** url_constructor *** Значение : https://www.yandex.ru/search/ads?text=бухгалтерский%20аудит&lr=35&within=5&lang=ru
+07.09.2020 02.30.56 :: Параметр *** url_constructor *** Значение : https://www.yandex.ru/search/ads?text=бухгалтерский%20аудит&lr=35&within=5&lang=ru&p=1
+07.09.2020 02.30.56 :: Параметр *** start_work *** Значение : 
+Запрос номер: 1 
+
+07.09.2020 02.30.56 :: Параметр *** check_request_status_code *** Значение : Успешный запрос!
+07.09.2020 02.30.56 :: Параметр *** get_response *** Значение : Успешный запрос!
+07.09.2020 02.30.56 :: Параметр *** soup_request *** Значение : Всего найдено блоков 10
+07.09.2020 02.30.56 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги – Скидка 50% на 1 мес.!
+07.09.2020 02.30.56 :: Параметр *** get_my_company_cid *** Значение : company_cid 0
+07.09.2020 02.30.56 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 бухгалтерские-услуги1.рф
+07.09.2020 02.30.56 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.30.56 :: Параметр *** get_my_company_text *** Значение : company_text  Оказываем бухгалтерские услуги по Краснодарскому краю! МЫ ПРОФЕССИОНАЛЫ! Позвоните! · Без штрафов. 17 бухгалтеров. Сэкономьте на аутсорсинге. Любая отчетность
+07.09.2020 02.30.56 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (861) 204-19-67
+07.09.2020 02.30.56 :: Параметр *** get_my_company_title *** Значение : company_title Аутсорсинг бухгалтерских услуг – Оставить заявку онлайн
+07.09.2020 02.30.56 :: Параметр *** get_my_company_cid *** Значение : company_cid 1
+07.09.2020 02.30.56 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 sber-solutions.ru
+07.09.2020 02.30.56 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.30.56 :: Параметр *** get_my_company_text *** Значение : company_text  Ведем все участки налогового и бухгалтерского учёта по международным стандартам! · Экспертиза. Финансовые гарантии. Более 25 лет опыта. Безопасность
+07.09.2020 02.30.56 :: Параметр *** get_my_company_contact *** Значение : company_contact 8 (800) 700-XX-XX Показать8 (800) 700-13-79
+07.09.2020 02.30.56 :: Параметр *** get_my_company_title *** Значение : company_title Услуги бухгалтера для ИП и ООО – 10 лет опыта
+07.09.2020 02.30.56 :: Параметр *** get_my_company_cid *** Значение : company_cid 2
+07.09.2020 02.30.56 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 buhgalter123.com
+07.09.2020 02.30.56 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.30.56 :: Параметр *** get_my_company_text *** Значение : company_text  От 700₽. Профильное высшее образование. - 80% на первый месяц обслуживания. ЕНДВ, УДС. · Команда профессионалов. Качественно. Надежно. Выгодно
+07.09.2020 02.30.56 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (928) 192-44-27
+07.09.2020 02.30.56 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги в Краснодаре – Под ключ!
+07.09.2020 02.30.56 :: Параметр *** get_my_company_cid *** Значение : company_cid 3
+07.09.2020 02.30.56 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 universal-online.ru
+07.09.2020 02.30.56 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.30.56 :: Параметр *** get_my_company_text *** Значение : company_text  Услуги под ключ. Бухгалтерские услуги для ИП и ЮЛ. Работаем в Краснодаре. Звони! · Аутсорсинг. Качественно. Оперативно. Под ключ
+07.09.2020 02.30.56 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (861) 215-96-56
+07.09.2020 02.30.56 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги – Ищите на Яндекс.Услугах
+07.09.2020 02.30.56 :: Параметр *** get_my_company_cid *** Значение : company_cid 4
+07.09.2020 02.30.56 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 uslugi.yandex.ru
+07.09.2020 02.30.56 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.30.56 :: Параметр *** get_my_company_text *** Значение : company_text  Сравните реальные цены и отзывы, и выберите подходящего специалиста. · Не берем комиссию. 4 500 Услуг. 450 000 Исполнителей. Система рейтингов
+07.09.2020 02.30.56 :: Параметр *** get_my_company_contact *** Значение : company_contact АдресКраснодар
+07.09.2020 02.30.56 :: Параметр *** get_my_company_title *** Значение : company_title Клининговые услуги. Краснодар и край. – Выгодные цены!
+07.09.2020 02.30.56 :: Параметр *** get_my_company_cid *** Значение : company_cid 5
+07.09.2020 02.30.56 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 клининг-краснодар.рф
+07.09.2020 02.30.56 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.30.56 :: Параметр *** get_my_company_text *** Значение : company_text  Персональный расчет стоимости. Любая сложность. Команда профессионалов. Сжатые сроки. · Гарантия. Индивидуальный подход. Консультации. Высокое качество
+07.09.2020 02.30.56 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (861) 290-29-04
+07.09.2020 02.30.56 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги! – От 2 100 руб./мес!
+07.09.2020 02.30.56 :: Параметр *** get_my_company_cid *** Значение : company_cid 6
+07.09.2020 02.30.56 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 moedelo.org
+07.09.2020 02.30.56 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.30.56 :: Параметр *** get_my_company_text *** Значение : company_text  Снижаем Налоги, расходы! Прогноз рисков. Бухгалтер из вашей отрасли! Забудь о рутине! · Поддержка 24/7. Страховка ответственности. Сдаем отчетность. 11 лет на рынке. Экономия на фот
+07.09.2020 02.30.56 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (800) 200-77-27
+07.09.2020 02.30.56 :: Параметр *** get_my_company_title *** Значение : company_title бухгалтерские услуги. Звоните! – Бух учёт. Налоговый учёт.
+07.09.2020 02.30.56 :: Параметр *** get_my_company_cid *** Значение : company_cid 7
+07.09.2020 02.30.56 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 нетпрофит.рф
+07.09.2020 02.30.56 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.30.56 :: Параметр *** get_my_company_text *** Значение : company_text  Любая сфера деятельности Вашего бизнеса. ОСН, ЕСХН, УСН, ЕНВД. Профессионально.
+07.09.2020 02.30.56 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (962) 410-76-54
+07.09.2020 02.30.56 :: Параметр *** get_my_company_title *** Значение : company_title Бух обслуживание – от 3500 руб. - Жми!
+07.09.2020 02.30.56 :: Параметр *** get_my_company_cid *** Значение : company_cid 8
+07.09.2020 02.30.56 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 вызови-бухгалтера.рф
+07.09.2020 02.30.56 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.30.56 :: Параметр *** get_my_company_text *** Значение : company_text  Комплексное Бухгалтерское Обслуживание под Ключ. Делаем Аудит. Оптимизируем Налоги. · Индивидуальный подход. Финансовые гарантии. Нулевая отчетность
+07.09.2020 02.30.56 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (918) 146-66-36
+07.09.2020 02.30.56 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги – от 700р. Краснодар!
+07.09.2020 02.30.56 :: Параметр *** get_my_company_cid *** Значение : company_cid 9
+07.09.2020 02.30.56 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 quiz.glavbuh93.ru
+07.09.2020 02.30.56 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.30.56 :: Параметр *** get_my_company_text *** Значение : company_text  Фин. отвечаем за порядок Вашей бухгалтерии. 1 мес. услуг В ПОДАРОК! Подробно на сайте. · Юр. поддержка. Расчет з/п. Учет кадров. Нулевая отчетность. Помощь с р/с
+07.09.2020 02.30.56 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (928) 665-42-52
+07.09.2020 02.30.56 :: Параметр *** _time_rand *** Значение : Время ожидания нового запроса time_rand  3 sec
+07.09.2020 02.30.56 :: Параметр *** start_work *** Значение : 
+Запрос номер: 2 
+
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : proxy {'http': 'http://83.171.114.92:45822', 'https': 'http://83.171.114.92:45822'}
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : ConnectTimeout: ConnectTimeout(MaxRetryError("HTTPSConnectionPool(host='www.yandex.ru', port=443): Max retries exceeded with url: /search/ads?text=%EF%BB%BF%D0%B1%D1%83%D1%85%D0%B3%D0%B0%D0%BB%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8&lr=35&within=5&lang=ru (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x045A15B0>, 'Connection to 83.171.114.92 timed out. (connect timeout=20.48)'))"))
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : Connection to proxi timed out
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : Время request: 20484.00 ms или 20.48 сек.
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : proxy {'http': 'http://90.189.110.170:3128', 'https': 'http://90.189.110.170:3128'}
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : ConnectTimeout: ConnectTimeout(MaxRetryError("HTTPSConnectionPool(host='www.yandex.ru', port=443): Max retries exceeded with url: /search/ads?text=%EF%BB%BF%D0%B1%D1%83%D1%85%D0%B3%D0%B0%D0%BB%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8&lr=35&within=5&lang=ru (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x045A1898>, 'Connection to 90.189.110.170 timed out. (connect timeout=20.48)'))"))
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : Connection to proxi timed out
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : Время request: 20484.00 ms или 20.48 сек.
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : proxy {'http': 'http://188.133.137.9:8081', 'https': 'http://188.133.137.9:8081'}
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : ProxyError: ProxyError(MaxRetryError("HTTPSConnectionPool(host='www.yandex.ru', port=443): Max retries exceeded with url: /search/ads?text=%EF%BB%BF%D0%B1%D1%83%D1%85%D0%B3%D0%B0%D0%BB%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8&lr=35&within=5&lang=ru (Caused by ProxyError('Cannot connect to proxy.', timeout('timed out')))"))
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : Удалите прокси из списка: ProxyError(MaxRetryError("HTTPSConnectionPool(host='www.yandex.ru', port=443): Max retries exceeded with url: /search/ads?text=%EF%BB%BF%D0%B1%D1%83%D1%85%D0%B3%D0%B0%D0%BB%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8&lr=35&within=5&lang=ru (Caused by ProxyError('Cannot connect to proxy.', timeout('timed out')))"))
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : proxy {'http': 'http://176.101.89.226:33470', 'https': 'http://176.101.89.226:33470'}
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : ConnectTimeout: ConnectTimeout(MaxRetryError("HTTPSConnectionPool(host='www.yandex.ru', port=443): Max retries exceeded with url: /search/ads?text=%EF%BB%BF%D0%B1%D1%83%D1%85%D0%B3%D0%B0%D0%BB%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8&lr=35&within=5&lang=ru (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x045A1D00>, 'Connection to 176.101.89.226 timed out. (connect timeout=20.48)'))"))
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : Connection to proxi timed out
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : Время request: 20500.00 ms или 20.5 сек.
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : proxy {'http': 'http://31.131.67.14:8080', 'https': 'http://31.131.67.14:8080'}
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : ConnectTimeout: ConnectTimeout(MaxRetryError("HTTPSConnectionPool(host='www.yandex.ru', port=443): Max retries exceeded with url: /search/ads?text=%EF%BB%BF%D0%B1%D1%83%D1%85%D0%B3%D0%B0%D0%BB%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8&lr=35&within=5&lang=ru (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x045A1B68>, 'Connection to 31.131.67.14 timed out. (connect timeout=20.48)'))"))
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : Connection to proxi timed out
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : Время request: 20484.00 ms или 20.48 сек.
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : proxy {'http': 'http://78.25.68.145:8080', 'https': 'http://78.25.68.145:8080'}
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : ConnectTimeout: ConnectTimeout(MaxRetryError("HTTPSConnectionPool(host='www.yandex.ru', port=443): Max retries exceeded with url: /search/ads?text=%EF%BB%BF%D0%B1%D1%83%D1%85%D0%B3%D0%B0%D0%BB%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8&lr=35&within=5&lang=ru (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x045A1400>, 'Connection to 78.25.68.145 timed out. (connect timeout=20.48)'))"))
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : Connection to proxi timed out
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : Время request: 20484.00 ms или 20.48 сек.
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : proxy {'http': 'http://176.192.8.206:39422', 'https': 'http://176.192.8.206:39422'}
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : ProxyError: ProxyError(MaxRetryError("HTTPSConnectionPool(host='www.yandex.ru', port=443): Max retries exceeded with url: /search/ads?text=%EF%BB%BF%D0%B1%D1%83%D1%85%D0%B3%D0%B0%D0%BB%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8&lr=35&within=5&lang=ru (Caused by ProxyError('Cannot connect to proxy.', RemoteDisconnected('Remote end closed connection without response')))"))
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : Удалите прокси из списка: ProxyError(MaxRetryError("HTTPSConnectionPool(host='www.yandex.ru', port=443): Max retries exceeded with url: /search/ads?text=%EF%BB%BF%D0%B1%D1%83%D1%85%D0%B3%D0%B0%D0%BB%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8&lr=35&within=5&lang=ru (Caused by ProxyError('Cannot connect to proxy.', RemoteDisconnected('Remote end closed connection without response')))"))
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : proxy {'http': 'http://77.94.123.91:43205', 'https': 'http://77.94.123.91:43205'}
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : ConnectTimeout: ConnectTimeout(MaxRetryError("HTTPSConnectionPool(host='www.yandex.ru', port=443): Max retries exceeded with url: /search/ads?text=%EF%BB%BF%D0%B1%D1%83%D1%85%D0%B3%D0%B0%D0%BB%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8&lr=35&within=5&lang=ru (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x045C02E0>, 'Connection to 77.94.123.91 timed out. (connect timeout=20.48)'))"))
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : Connection to proxi timed out
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : Время request: 20484.00 ms или 20.48 сек.
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : proxy {'http': 'http://82.114.228.124:8080', 'https': 'http://82.114.228.124:8080'}
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : ConnectTimeout: ConnectTimeout(MaxRetryError("HTTPSConnectionPool(host='www.yandex.ru', port=443): Max retries exceeded with url: /search/ads?text=%EF%BB%BF%D0%B1%D1%83%D1%85%D0%B3%D0%B0%D0%BB%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8&lr=35&within=5&lang=ru (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x045C0598>, 'Connection to 82.114.228.124 timed out. (connect timeout=20.48)'))"))
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : Connection to proxi timed out
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : Время request: 20485.00 ms или 20.49 сек.
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : proxy {'http': 'http://80.89.133.210:3128', 'https': 'http://80.89.133.210:3128'}
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : ConnectTimeout: ConnectTimeout(MaxRetryError("HTTPSConnectionPool(host='www.yandex.ru', port=443): Max retries exceeded with url: /search/ads?text=%EF%BB%BF%D0%B1%D1%83%D1%85%D0%B3%D0%B0%D0%BB%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8&lr=35&within=5&lang=ru (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x045C0868>, 'Connection to 80.89.133.210 timed out. (connect timeout=20.48)'))"))
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : Connection to proxi timed out
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : Время request: 20484.00 ms или 20.48 сек.
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : proxy {'http': 'http://213.178.38.246:38978', 'https': 'http://213.178.38.246:38978'}
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : Время request: 3172.00 ms или 3.17 сек.
+07.09.2020 02.30.56 :: Параметр *** check_request_status_code *** Значение : Успешный запрос!
+07.09.2020 02.30.56 :: Параметр *** get_response_with_proxy *** Значение : Успешный запрос!
+07.09.2020 02.41.30 :: Параметр *** main *** Значение : 
+**** Start ****
+
+07.09.2020 02.41.30 :: Параметр *** url_constructor *** Значение : https://www.yandex.ru/search/ads?text=﻿бухгалтерские%20услуги&lr=35&within=5&lang=ru
+07.09.2020 02.41.30 :: Параметр *** url_constructor *** Значение : https://www.yandex.ru/search/ads?text=﻿бухгалтерские%20услуги&lr=35&within=5&lang=ru&p=1
+07.09.2020 02.41.30 :: Параметр *** url_constructor *** Значение : https://www.yandex.ru/search/ads?text=бухгалтерский%20аудит&lr=35&within=5&lang=ru
+07.09.2020 02.41.30 :: Параметр *** url_constructor *** Значение : https://www.yandex.ru/search/ads?text=бухгалтерский%20аудит&lr=35&within=5&lang=ru&p=1
+07.09.2020 02.41.30 :: Параметр *** start_work *** Значение : 
+Запрос номер: 1 
+
+07.09.2020 02.41.30 :: Параметр *** check_request_status_code *** Значение : Успешный запрос!
+07.09.2020 02.41.30 :: Параметр *** get_response *** Значение : Успешный запрос!
+07.09.2020 02.41.30 :: Параметр *** soup_request *** Значение : Всего найдено блоков 10
+07.09.2020 02.41.30 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги – Скидка 50% на 1 мес.!
+07.09.2020 02.41.30 :: Параметр *** get_my_company_cid *** Значение : company_cid 0
+07.09.2020 02.41.30 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 бухгалтерские-услуги1.рф
+07.09.2020 02.41.30 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_text *** Значение : company_text  Оказываем бухгалтерские услуги по Краснодарскому краю! МЫ ПРОФЕССИОНАЛЫ! Позвоните! · Без штрафов. 17 бухгалтеров. Сэкономьте на аутсорсинге. Любая отчетность
+07.09.2020 02.41.30 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (861) 204-19-67
+07.09.2020 02.41.30 :: Параметр *** get_my_company_title *** Значение : company_title Cifra: Удобная бухгалтерия – для бизнеса в телефоне
+07.09.2020 02.41.30 :: Параметр *** get_my_company_cid *** Значение : company_cid 1
+07.09.2020 02.41.30 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 vtb.cifra.app
+07.09.2020 02.41.30 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_text *** Значение : company_text  При открытии в ВТБ р/с для ИП - ведение бухгалтерии 1 год бесплатно!Подать заявку · Налоговый учет. Мультибанк. Напоминания о событиях. Чат-помощник. Бесплатное приложение · Финансовые услуги оказывает: ПАО "Банк ВТБ"
+07.09.2020 02.41.30 :: Параметр *** get_my_company_contact *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_title *** Значение : company_title Аутсорсинг бухгалтерских услуг – Оставить заявку онлайн
+07.09.2020 02.41.30 :: Параметр *** get_my_company_cid *** Значение : company_cid 2
+07.09.2020 02.41.30 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 sber-solutions.ru
+07.09.2020 02.41.30 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_text *** Значение : company_text  Ведем все участки налогового и бухгалтерского учёта по международным стандартам! · Экспертиза. Финансовые гарантии. Более 25 лет опыта. Безопасность
+07.09.2020 02.41.30 :: Параметр *** get_my_company_contact *** Значение : company_contact 8 (800) 700-XX-XX Показать8 (800) 700-13-79
+07.09.2020 02.41.30 :: Параметр *** get_my_company_title *** Значение : company_title Услуги бухгалтера для ИП и ООО – 10 лет опыта
+07.09.2020 02.41.30 :: Параметр *** get_my_company_cid *** Значение : company_cid 3
+07.09.2020 02.41.30 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 buhgalter123.com
+07.09.2020 02.41.30 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_text *** Значение : company_text  От 700₽. Профильное высшее образование. - 80% на первый месяц обслуживания. ЕНДВ, УДС. · Команда профессионалов. Качественно. Надежно. Выгодно
+07.09.2020 02.41.30 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (928) 192-44-27
+07.09.2020 02.41.30 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги в Краснодаре – Под ключ!
+07.09.2020 02.41.30 :: Параметр *** get_my_company_cid *** Значение : company_cid 4
+07.09.2020 02.41.30 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 universal-online.ru
+07.09.2020 02.41.30 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_text *** Значение : company_text  Услуги под ключ. Бухгалтерские услуги для ИП и ЮЛ. Работаем в Краснодаре. Звони! · Аутсорсинг. Качественно. Оперативно. Под ключ
+07.09.2020 02.41.30 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (861) 215-96-56
+07.09.2020 02.41.30 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги – Ищите на Яндекс.Услугах
+07.09.2020 02.41.30 :: Параметр *** get_my_company_cid *** Значение : company_cid 5
+07.09.2020 02.41.30 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 uslugi.yandex.ru
+07.09.2020 02.41.30 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_text *** Значение : company_text  Сравните реальные цены и отзывы, и выберите подходящего специалиста. · Не берем комиссию. 4 500 Услуг. 450 000 Исполнителей. Система рейтингов
+07.09.2020 02.41.30 :: Параметр *** get_my_company_contact *** Значение : company_contact АдресКраснодар
+07.09.2020 02.41.30 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги! – От 2 100 руб./мес!
+07.09.2020 02.41.30 :: Параметр *** get_my_company_cid *** Значение : company_cid 6
+07.09.2020 02.41.30 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 moedelo.org
+07.09.2020 02.41.30 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_text *** Значение : company_text  Снижаем Налоги, расходы! Прогноз рисков. Бухгалтер из вашей отрасли! Забудь о рутине! · Поддержка 24/7. Страховка ответственности. Сдаем отчетность. 11 лет на рынке. Экономия на фот
+07.09.2020 02.41.30 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (800) 200-77-27
+07.09.2020 02.41.30 :: Параметр *** get_my_company_title *** Значение : company_title бухгалтерские услуги. Звоните! – Бух учёт. Налоговый учёт.
+07.09.2020 02.41.30 :: Параметр *** get_my_company_cid *** Значение : company_cid 7
+07.09.2020 02.41.30 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 нетпрофит.рф
+07.09.2020 02.41.30 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_text *** Значение : company_text  Любая сфера деятельности Вашего бизнеса. ОСН, ЕСХН, УСН, ЕНВД. Профессионально.
+07.09.2020 02.41.30 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (962) 410-76-54
+07.09.2020 02.41.30 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги – от 1160₽ за комплекс!
+07.09.2020 02.41.30 :: Параметр *** get_my_company_cid *** Значение : company_cid 8
+07.09.2020 02.41.30 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 1cbo.ru
+07.09.2020 02.41.30 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_text *** Значение : company_text  Бухгалтерские услуги по стандарту Фирмы 1С. Без ошибок и штрафов. 1С:БухОбслуживание · 28 000 клиентов. 805 партнеров. 209 городов. 29 лет опыта. 960 отзывов · 18+
+07.09.2020 02.41.30 :: Параметр *** get_my_company_contact *** Значение : company_contact 8 (800) 77-0X-XXX Показать8 (800) 77-00-321
+07.09.2020 02.41.30 :: Параметр *** get_my_company_title *** Значение : company_title Скидки для бизнеса от Mastercard – Бизнес-Бонус
+07.09.2020 02.41.30 :: Параметр *** get_my_company_cid *** Значение : company_cid 9
+07.09.2020 02.41.30 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 business.mastercard.ru
+07.09.2020 02.41.30 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_text *** Значение : company_text  Оплачивайте услуги бизнес-картой Mastercard и получайте бонусы от наших партнёров · Регистрируйся. Копи бонусы. Получай скидки
+07.09.2020 02.41.30 :: Параметр *** get_my_company_contact *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** _time_rand *** Значение : Время ожидания нового запроса time_rand  4 sec
+07.09.2020 02.41.30 :: Параметр *** start_work *** Значение : 
+Запрос номер: 2 
+
+07.09.2020 02.41.30 :: Параметр *** get_response_with_proxy *** Значение : proxy {'http': 'http://83.171.114.92:45822', 'https': 'http://83.171.114.92:45822'}
+07.09.2020 02.41.30 :: Параметр *** get_response_with_proxy *** Значение : Время request: 6734.00 ms или 6.73 сек.
+07.09.2020 02.41.30 :: Параметр *** check_request_status_code *** Значение : Успешный запрос!
+07.09.2020 02.41.30 :: Параметр *** get_response_with_proxy *** Значение : Успешный запрос!
+07.09.2020 02.41.30 :: Параметр *** soup_request *** Значение : Всего найдено блоков 10
+07.09.2020 02.41.30 :: Параметр *** get_my_company_title *** Значение : company_title 1Бухгалтерские услуги в Краснодаре.Стоимость от 800...
+07.09.2020 02.41.30 :: Параметр *** get_my_company_cid *** Значение : company_cid 0
+07.09.2020 02.41.30 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 krasnodar.optimal-buh.ru
+07.09.2020 02.41.30 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_text *** Значение : company_text  Оказание разовых бухгалтерских услуги. Опыт на рынке более 15 лет. ... Бухгалтерские услуги от нашей компании в Краснодаре выбирают многие...
+07.09.2020 02.41.30 :: Параметр *** get_my_company_contact *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_title *** Значение : company_title 2Бухгалтерское обслуживание в Краснодаре - сравнить...
+07.09.2020 02.41.30 :: Параметр *** get_my_company_cid *** Значение : company_cid 1
+07.09.2020 02.41.30 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 krasnodar.regtorg.ru›Товары и услуги
+07.09.2020 02.41.30 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_text *** Значение : company_text  Бухгалтерское обслуживание в Краснодаре предложения о покупке, продаже товаров и услуг от ведущих поставщиков и производителей Краснодара.
+07.09.2020 02.41.30 :: Параметр *** get_my_company_contact *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_title *** Значение : company_title 3Как я 4 раза провалил продвижение бухгалтерских услуг...
+07.09.2020 02.41.30 :: Параметр *** get_my_company_cid *** Значение : company_cid 2
+07.09.2020 02.41.30 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 vc.ru
+07.09.2020 02.41.30 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_text *** Значение : company_text  Рынок бухгалтерских услуг очень консервативен. ... Зарегистрировался на Профи.ру, заполнил профиль и начал покупать заявки.
+07.09.2020 02.41.30 :: Параметр *** get_my_company_contact *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_title *** Значение : company_title 4БУХГАЛТЕРСКИЕ УСЛУГИ
+07.09.2020 02.41.30 :: Параметр *** get_my_company_cid *** Значение : company_cid 3
+07.09.2020 02.41.30 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 buhotchet.online
+07.09.2020 02.41.30 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_text *** Значение : company_text  БУХГАЛТЕРСКИЕ УСЛУГИ. Мы ведем бухгалтерию! БУХГАЛТЕРСКОЕ. ... Цены на аутсорсинг бухгалтерии зависят от ваших оборотов, системы налогообложения и...
+07.09.2020 02.41.30 :: Параметр *** get_my_company_contact *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_title *** Значение : company_title 5Бухгалтерское обслуживание в Краснодаре...
+07.09.2020 02.41.30 :: Параметр *** get_my_company_cid *** Значение : company_cid 4
+07.09.2020 02.41.30 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 vashbugalter.ru
+07.09.2020 02.41.30 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_text *** Значение : company_text  Профессиональные услуги бухгалтерского обслуживания в Краснодаре от компании «Ваш бухгалтер». Хотите заказать услугу бухгалтерского...
+07.09.2020 02.41.30 :: Параметр *** get_my_company_contact *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги – Скидка 50% на 1 мес.!
+07.09.2020 02.41.30 :: Параметр *** get_my_company_cid *** Значение : company_cid 5
+07.09.2020 02.41.30 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 бухгалтерские-услуги1.рф
+07.09.2020 02.41.30 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_text *** Значение : company_text  Оказываем бухгалтерские услуги по Краснодарскому краю! МЫ ПРОФЕССИОНАЛЫ! Позвоните! · Без штрафов. 17 бухгалтеров. Сэкономьте на аутсорсинге. Любая отчетность
+07.09.2020 02.41.30 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (861) 204-19-67
+07.09.2020 02.41.30 :: Параметр *** get_my_company_title *** Значение : company_title Cifra: Удобная бухгалтерия – для бизнеса в телефоне
+07.09.2020 02.41.30 :: Параметр *** get_my_company_cid *** Значение : company_cid 6
+07.09.2020 02.41.30 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 vtb.cifra.app
+07.09.2020 02.41.30 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_text *** Значение : company_text  При открытии в ВТБ р/с для ИП - ведение бухгалтерии 1 год бесплатно!Подать заявку · Налоговый учет. Мультибанк. Напоминания о событиях. Чат-помощник. Бесплатное приложение · Финансовые услуги оказывает: ПАО "Банк ВТБ"
+07.09.2020 02.41.30 :: Параметр *** get_my_company_contact *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_title *** Значение : company_title Аутсорсинг бухгалтерских услуг – Оставить заявку онлайн
+07.09.2020 02.41.30 :: Параметр *** get_my_company_cid *** Значение : company_cid 7
+07.09.2020 02.41.30 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 sber-solutions.ru
+07.09.2020 02.41.30 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_text *** Значение : company_text  Ведем все участки налогового и бухгалтерского учёта по международным стандартам! · Экспертиза. Финансовые гарантии. Более 25 лет опыта. Безопасность
+07.09.2020 02.41.30 :: Параметр *** get_my_company_contact *** Значение : company_contact 8 (800) 700-XX-XX Показать8 (800) 700-13-79
+07.09.2020 02.41.30 :: Параметр *** get_my_company_title *** Значение : company_title Услуги бухгалтера для ИП и ООО – 10 лет опыта
+07.09.2020 02.41.30 :: Параметр *** get_my_company_cid *** Значение : company_cid 8
+07.09.2020 02.41.30 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 buhgalter123.com
+07.09.2020 02.41.30 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_text *** Значение : company_text  От 700₽. Профильное высшее образование. - 80% на первый месяц обслуживания. ЕНДВ, УДС. · Команда профессионалов. Качественно. Надежно. Выгодно
+07.09.2020 02.41.30 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (928) 192-44-27
+07.09.2020 02.41.30 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги в Краснодаре – Под ключ!
+07.09.2020 02.41.30 :: Параметр *** get_my_company_cid *** Значение : company_cid 9
+07.09.2020 02.41.30 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 universal-online.ru
+07.09.2020 02.41.30 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_text *** Значение : company_text  Услуги под ключ. Бухгалтерские услуги для ИП и ЮЛ. Работаем в Краснодаре. Звони! · Аутсорсинг. Качественно. Оперативно. Под ключ
+07.09.2020 02.41.30 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (861) 215-96-56
+07.09.2020 02.41.30 :: Параметр *** _time_rand *** Значение : Время ожидания нового запроса time_rand  4 sec
+07.09.2020 02.41.30 :: Параметр *** start_work *** Значение : 
 Запрос номер: 3 
 
-04.09.2020 21.44.46 :: Параметр *** check_request_status_code *** Значение : Client Error https://www.yandex.ru/search/ads?text=бухгалтерский%20аудит&lr=35&within=5&lang=ru : 
-04.09.2020 21.44.46 :: Параметр *** soup_request *** Значение : Всего найдено блоков 10
-04.09.2020 21.44.46 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги в Краснодаре – Снизим затраты!
-04.09.2020 21.44.46 :: Параметр *** get_my_company_cid *** Значение : company_cid 0
-04.09.2020 21.44.46 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 buh-krasnodar.ru
-04.09.2020 21.44.46 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_text *** Значение : company_text  Ведение бухгалтерии на аутсорсинге в Краснодаре! Снизим затраты!Узнайте цены онлайн! · Нулевая отчетность. Постановка учета. Аудит. Аутсорсинг. Консалтинг
-04.09.2020 21.44.46 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (909) 458-06-43
-04.09.2020 21.44.46 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги – ООО "НФЦ 123"
-04.09.2020 21.44.46 :: Параметр *** get_my_company_cid *** Значение : company_cid 1
-04.09.2020 21.44.46 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 nfc123.ru
-04.09.2020 21.44.46 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_text *** Значение : company_text  Услуги "под ключ" для ИП и ООО в Краснодаре: учет, налоги, регистрация, ликвидация. · Поддержка 24/7. Доступные цены. Опытные специалисты. Услуги под ключ
-04.09.2020 21.44.46 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (918) 088-26-88
-04.09.2020 21.44.46 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерское обслуживание! – Закроем все бух. вопросы!
-04.09.2020 21.44.46 :: Параметр *** get_my_company_cid *** Значение : company_cid 2
-04.09.2020 21.44.46 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 moedelo.org
-04.09.2020 21.44.46 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_text *** Значение : company_text  Бухгалтерская команда под вашу отрасль! Снижаем налоги, избавляем от рисков! · Снижаем расходы. Сокращаем налоги. Проверяем контрагентов. Работаем с ИП. Работаем с ООО
-04.09.2020 21.44.46 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (800) 200-77-27
-04.09.2020 21.44.46 :: Параметр *** get_my_company_title *** Значение : company_title Услуги бухгалтера для ИП и ООО – 10 лет опыта
-04.09.2020 21.44.46 :: Параметр *** get_my_company_cid *** Значение : company_cid 3
-04.09.2020 21.44.46 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 buhgalter123.com
-04.09.2020 21.44.46 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_text *** Значение : company_text  От 700₽. Профильное высшее образование. - 80% на первый месяц обслуживания. ЕНДВ, УДС. · Команда профессионалов. Качественно. Надежно. Выгодно
-04.09.2020 21.44.46 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (928) 192-44-27
-04.09.2020 21.44.46 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерский аудит в Краснодаре – Под ключ!
-04.09.2020 21.44.46 :: Параметр *** get_my_company_cid *** Значение : company_cid 4
-04.09.2020 21.44.46 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 listooo23.ru
-04.09.2020 21.44.46 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_text *** Значение : company_text  Расскажем как сейчас можно сэкономить до 40% налогов. Узнай подробности на сайте! · работа по договору. аутсорсинг под ключ. гарантия на результат
-04.09.2020 21.44.46 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (918) 315-96-46
-04.09.2020 21.44.46 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерский аудит – Аудиторское заключение!
-04.09.2020 21.44.46 :: Параметр *** get_my_company_cid *** Значение : company_cid 5
-04.09.2020 21.44.46 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 paradi-gm.com
-04.09.2020 21.44.46 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_text *** Значение : company_text  Расчет стоимости за 25 сек. без смс и звонков! Опыт аудиторской деятельности 16 лет! · Квалифицированные услуги. Консультации экспертов. Опыт 16 лет
-04.09.2020 21.44.46 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (906) 363-75-72
-04.09.2020 21.44.46 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги – Ищите на Яндекс.Услугах
-04.09.2020 21.44.46 :: Параметр *** get_my_company_cid *** Значение : company_cid 6
-04.09.2020 21.44.46 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 uslugi.yandex.ru
-04.09.2020 21.44.46 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_text *** Значение : company_text  Сравните реальные цены и отзывы, и выберите подходящего специалиста. · Не берем комиссию. 4 500 Услуг. 450 000 Исполнителей. Система рейтингов
-04.09.2020 21.44.46 :: Параметр *** get_my_company_contact *** Значение : company_contact АдресКраснодар
-04.09.2020 21.44.46 :: Параметр *** get_my_company_title *** Значение : company_title Аудиторское заключение! Под ключ! / irene-audit.ru
-04.09.2020 21.44.46 :: Параметр *** get_my_company_cid *** Значение : company_cid 7
-04.09.2020 21.44.46 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 irene-audit.ru
-04.09.2020 21.44.46 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_text *** Значение : company_text  Дадим выгодную цену и гарантии!
-04.09.2020 21.44.46 :: Параметр *** get_my_company_contact *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_title *** Значение : company_title Mastercard Бизнес-Бонус – Выгодные предложения
-04.09.2020 21.44.46 :: Параметр *** get_my_company_cid *** Значение : company_cid 8
-04.09.2020 21.44.46 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 business.mastercard.ru
-04.09.2020 21.44.46 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_text *** Значение : company_text  Для малого и среднего бизнеса. Регистрируйтесь и получайте бонусы · Регистрируйся. Копи бонусы. Получай скидки
-04.09.2020 21.44.46 :: Параметр *** get_my_company_contact *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерский аутсорсинг – юридических лиц
-04.09.2020 21.44.46 :: Параметр *** get_my_company_cid *** Значение : company_cid 9
-04.09.2020 21.44.46 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 clipkrd.ru
-04.09.2020 21.44.46 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_text *** Значение : company_text  Постановка и восстановление учета. Экспресс-диагностика. 14 дней бесплатно. · Всегда на связи. Без больничных. Без отпусков. Конфиденциальность. Финансовая безопасность
-04.09.2020 21.44.46 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (861) 241-50-33
-04.09.2020 21.44.46 :: Параметр *** _time_rand *** Значение : Время ожидания нового запроса time_rand  2 sec
-04.09.2020 21.44.46 :: Параметр *** start_work *** Значение : 
+07.09.2020 02.41.30 :: Параметр *** get_response_with_proxy *** Значение : proxy {'http': 'http://83.171.114.92:45822', 'https': 'http://83.171.114.92:45822'}
+07.09.2020 02.41.30 :: Параметр *** get_response_with_proxy *** Значение : ConnectTimeout: ConnectTimeout(MaxRetryError("HTTPSConnectionPool(host='www.yandex.ru', port=443): Max retries exceeded with url: /search/ads?text=%EF%BB%BF%D0%B1%D1%83%D1%85%D0%B3%D0%B0%D0%BB%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8&lr=35&within=5&lang=ru (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x05B84D30>, 'Connection to 83.171.114.92 timed out. (connect timeout=20.48)'))"))
+07.09.2020 02.41.30 :: Параметр *** get_response_with_proxy *** Значение : Connection to proxi timed out
+07.09.2020 02.41.30 :: Параметр *** get_response_with_proxy *** Значение : Время request: 20500.00 ms или 20.5 сек.
+07.09.2020 02.41.30 :: Параметр *** get_response_with_proxy *** Значение : proxy {'http': 'http://90.189.110.170:3128', 'https': 'http://90.189.110.170:3128'}
+07.09.2020 02.41.30 :: Параметр *** get_response_with_proxy *** Значение : Время request: 2656.00 ms или 2.66 сек.
+07.09.2020 02.41.30 :: Параметр *** check_request_status_code *** Значение : Успешный запрос!
+07.09.2020 02.41.30 :: Параметр *** get_response_with_proxy *** Значение : Успешный запрос!
+07.09.2020 02.41.30 :: Параметр *** soup_request *** Значение : Всего найдено блоков 10
+07.09.2020 02.41.30 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги – Скидка 50% на 1 мес.!
+07.09.2020 02.41.30 :: Параметр *** get_my_company_cid *** Значение : company_cid 0
+07.09.2020 02.41.30 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 бухгалтерские-услуги1.рф
+07.09.2020 02.41.30 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_text *** Значение : company_text  Оказываем бухгалтерские услуги по Краснодарскому краю! МЫ ПРОФЕССИОНАЛЫ! Позвоните! · Без штрафов. 17 бухгалтеров. Сэкономьте на аутсорсинге. Любая отчетность
+07.09.2020 02.41.30 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (861) 204-19-67
+07.09.2020 02.41.30 :: Параметр *** get_my_company_title *** Значение : company_title Cifra: Удобная бухгалтерия – для бизнеса в телефоне
+07.09.2020 02.41.30 :: Параметр *** get_my_company_cid *** Значение : company_cid 1
+07.09.2020 02.41.30 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 vtb.cifra.app
+07.09.2020 02.41.30 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_text *** Значение : company_text  При открытии в ВТБ р/с для ИП - ведение бухгалтерии 1 год бесплатно!Подать заявку · Налоговый учет. Мультибанк. Напоминания о событиях. Чат-помощник. Бесплатное приложение · Финансовые услуги оказывает: ПАО "Банк ВТБ"
+07.09.2020 02.41.30 :: Параметр *** get_my_company_contact *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_title *** Значение : company_title Аутсорсинг бухгалтерских услуг – Оставить заявку онлайн
+07.09.2020 02.41.30 :: Параметр *** get_my_company_cid *** Значение : company_cid 2
+07.09.2020 02.41.30 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 sber-solutions.ru
+07.09.2020 02.41.30 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_text *** Значение : company_text  Ведем все участки налогового и бухгалтерского учёта по международным стандартам! · Экспертиза. Финансовые гарантии. Более 25 лет опыта. Безопасность
+07.09.2020 02.41.30 :: Параметр *** get_my_company_contact *** Значение : company_contact 8 (800) 700-XX-XX Показать8 (800) 700-13-79
+07.09.2020 02.41.30 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги – от 1160₽ за комплекс!
+07.09.2020 02.41.30 :: Параметр *** get_my_company_cid *** Значение : company_cid 3
+07.09.2020 02.41.30 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 1cbo.ru
+07.09.2020 02.41.30 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_text *** Значение : company_text  Бухгалтерские услуги по стандарту Фирмы 1С. Без ошибок и штрафов. 1С:БухОбслуживание · 28 000 клиентов. 805 партнеров. 209 городов. 29 лет опыта. 960 отзывов · 18+
+07.09.2020 02.41.30 :: Параметр *** get_my_company_contact *** Значение : company_contact 8 (800) 77-0X-XXX Показать8 (800) 77-00-321
+07.09.2020 02.41.30 :: Параметр *** get_my_company_title *** Значение : company_title Услуги бухгалтера для ИП и ООО – 10 лет опыта
+07.09.2020 02.41.30 :: Параметр *** get_my_company_cid *** Значение : company_cid 4
+07.09.2020 02.41.30 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 buhgalter123.com
+07.09.2020 02.41.30 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_text *** Значение : company_text  От 700₽. Профильное высшее образование. - 80% на первый месяц обслуживания. ЕНДВ, УДС. · Команда профессионалов. Качественно. Надежно. Выгодно
+07.09.2020 02.41.30 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (928) 192-44-27
+07.09.2020 02.41.30 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги в Краснодаре – Под ключ!
+07.09.2020 02.41.30 :: Параметр *** get_my_company_cid *** Значение : company_cid 5
+07.09.2020 02.41.30 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 universal-online.ru
+07.09.2020 02.41.30 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_text *** Значение : company_text  Услуги под ключ. Бухгалтерские услуги для ИП и ЮЛ. Работаем в Краснодаре. Звони! · Аутсорсинг. Качественно. Оперативно. Под ключ
+07.09.2020 02.41.30 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (861) 215-96-56
+07.09.2020 02.41.30 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги – Ищите на Яндекс.Услугах
+07.09.2020 02.41.30 :: Параметр *** get_my_company_cid *** Значение : company_cid 6
+07.09.2020 02.41.30 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 uslugi.yandex.ru
+07.09.2020 02.41.30 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_text *** Значение : company_text  Сравните реальные цены и отзывы, и выберите подходящего специалиста. · Не берем комиссию. 4 500 Услуг. 450 000 Исполнителей. Система рейтингов
+07.09.2020 02.41.30 :: Параметр *** get_my_company_contact *** Значение : company_contact АдресКраснодар
+07.09.2020 02.41.30 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги. – От 4 200р. Компания «Моё дело»
+07.09.2020 02.41.30 :: Параметр *** get_my_company_cid *** Значение : company_cid 7
+07.09.2020 02.41.30 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 moedelo.org
+07.09.2020 02.41.30 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_text *** Значение : company_text  Бухгалтерские услуги. Законно снижаем налоги. Компания «Моё дело». Кликай. · Поддержка 24/7. Цена. Отчетность ООО. Отчетность ИП
+07.09.2020 02.41.30 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (800) 200-77-27
+07.09.2020 02.41.30 :: Параметр *** get_my_company_title *** Значение : company_title бухгалтерские услуги. Звоните! – Бух учёт. Налоговый учёт.
+07.09.2020 02.41.30 :: Параметр *** get_my_company_cid *** Значение : company_cid 8
+07.09.2020 02.41.30 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 нетпрофит.рф
+07.09.2020 02.41.30 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_text *** Значение : company_text  Любая сфера деятельности Вашего бизнеса. ОСН, ЕСХН, УСН, ЕНВД. Профессионально.
+07.09.2020 02.41.30 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (962) 410-76-54
+07.09.2020 02.41.30 :: Параметр *** get_my_company_title *** Значение : company_title Скидки для бизнеса от Mastercard – Бизнес-Бонус
+07.09.2020 02.41.30 :: Параметр *** get_my_company_cid *** Значение : company_cid 9
+07.09.2020 02.41.30 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 business.mastercard.ru
+07.09.2020 02.41.30 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_text *** Значение : company_text  Оплачивайте услуги бизнес-картой Mastercard и получайте бонусы от наших партнёров · Регистрируйся. Копи бонусы. Получай скидки
+07.09.2020 02.41.30 :: Параметр *** get_my_company_contact *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** _time_rand *** Значение : Время ожидания нового запроса time_rand  4 sec
+07.09.2020 02.41.30 :: Параметр *** start_work *** Значение : 
 Запрос номер: 4 
 
-04.09.2020 21.44.46 :: Параметр *** check_request_status_code *** Значение : Client Error https://www.yandex.ru/search/ads?text=бухгалтерский%20аудит&lr=35&within=5&lang=ru&p=1 : 
-04.09.2020 21.44.46 :: Параметр *** soup_request *** Значение : Всего найдено блоков 10
-04.09.2020 21.44.46 :: Параметр *** get_my_company_title *** Значение : company_title Аудиторское заключение! Под ключ! / irene-audit.ru
-04.09.2020 21.44.46 :: Параметр *** get_my_company_cid *** Значение : company_cid 0
-04.09.2020 21.44.46 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 irene-audit.ru
-04.09.2020 21.44.46 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_text *** Значение : company_text  Дадим выгодную цену и гарантии!
-04.09.2020 21.44.46 :: Параметр *** get_my_company_contact *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_title *** Значение : company_title Магистратура учет анализ аудит – Поступи прямо сейчас!
-04.09.2020 21.44.46 :: Параметр *** get_my_company_cid *** Значение : company_cid 1
-04.09.2020 21.44.46 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 synergy.ru
-04.09.2020 21.44.46 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_text *** Значение : company_text  Магистратура учет анализ аудит. Большой выбор факультетов. Все формы обучения! · Трудоустройство. Общежитие. Оставьте заявку. Отсрочка от армии. Стажировки. Доступные цены. Гос. диплом.. Факультеты
-04.09.2020 21.44.46 :: Параметр *** get_my_company_contact *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги в Краснодаре – для ИП / ООО / АО
-04.09.2020 21.44.46 :: Параметр *** get_my_company_cid *** Значение : company_cid 2
-04.09.2020 21.44.46 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 abkr23.ru
-04.09.2020 21.44.46 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_text *** Значение : company_text  Профессиональное оказание бухгалтерских услуг в Краснодаре для ИП, ООО и АО. Жмите! · Без лишних расходов. Главный бухгалтер. Отчетность и налоги
-04.09.2020 21.44.46 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (989) 294-60-21
-04.09.2020 21.44.46 :: Параметр *** get_my_company_title *** Значение : company_title Аудит системы менеджмента качества / gk-regul.ru
-04.09.2020 21.44.46 :: Параметр *** get_my_company_cid *** Значение : company_cid 3
-04.09.2020 21.44.46 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 gk-regul.ru
-04.09.2020 21.44.46 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_text *** Значение : company_text  Проведение аудита системы менеджмента качества на предприятиях и организациях. · Бесплатная консультация. Гарантия. ГОСТ Р ИСО 9001. ГОСТ РВ 0015-002
-04.09.2020 21.44.46 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (981) 146-78-23
-04.09.2020 21.44.46 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги – Акция, месяц бесплатно!
-04.09.2020 21.44.46 :: Параметр *** get_my_company_cid *** Значение : company_cid 4
-04.09.2020 21.44.46 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 ask-prof.ru
-04.09.2020 21.44.46 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_text *** Значение : company_text  Бухгалтерские услуги в Краснодаре. Аудит, обслуживание, консультации по налогам
-04.09.2020 21.44.46 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (861) 279-22-37
-04.09.2020 21.44.46 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерский аудит, где купить в Краснодаре. - Sindom
-04.09.2020 21.44.46 :: Параметр *** get_my_company_cid *** Значение : company_cid 5
-04.09.2020 21.44.46 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 krasnodar.sindom.ru
-04.09.2020 21.44.46 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_text *** Значение : company_text  Бухгалтерский аудит - выгодные предложения в Краснодаре. Большой выбор от компаний и частных лиц. Зайдите, чтобы сравнить, выбрать и купить!
-04.09.2020 21.44.46 :: Параметр *** get_my_company_contact *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_title *** Значение : company_title бухгалтерский аудит - Купить готовый бизнес в России
-04.09.2020 21.44.46 :: Параметр *** get_my_company_cid *** Значение : company_cid 6
-04.09.2020 21.44.46 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 Avito.ru
-04.09.2020 21.44.46 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_text *** Значение : company_text  12 объявлений о продаже готового и действующего бизнеса в России. ... Выбирайте среди предложений собственников о продаже готового бизнеса.
-04.09.2020 21.44.46 :: Параметр *** get_my_company_contact *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_title *** Значение : company_title SIC Management Group | Бухгалтерский учет, аудит...
-04.09.2020 21.44.46 :: Параметр *** get_my_company_cid *** Значение : company_cid 7
-04.09.2020 21.44.46 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 sic-mg.com
-04.09.2020 21.44.46 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_text *** Значение : company_text  АУДИТ. Мы проведём аудиторскую проверку и выдадим вам аудиторское ... Экспресс-аудит дает возможность протестировать ведение бухгалтерского учета и...
-04.09.2020 21.44.46 :: Параметр *** get_my_company_contact *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_title *** Значение : company_title Узнайте стоимость ведения бухгалтерского учета...
-04.09.2020 21.44.46 :: Параметр *** get_my_company_cid *** Значение : company_cid 8
-04.09.2020 21.44.46 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 krasnodar.optimal-buh.ru
-04.09.2020 21.44.46 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_text *** Значение : company_text  Цены на бухгалтерские услуги для ИП и ООО в Краснодаре в прейскуранте агентства Optimal Buh. Предлагаем гибкие тарифные планы для различных типов...
-04.09.2020 21.44.46 :: Параметр *** get_my_company_contact *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги: Поиск по тегу "аудит групп..."
-04.09.2020 21.44.46 :: Параметр *** get_my_company_cid *** Значение : company_cid 9
-04.09.2020 21.44.46 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 krasnodar.novayaspravka.ru
-04.09.2020 21.44.46 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** get_my_company_text *** Значение : company_text  аудит групп аудиторская компания. Бухгалтерские услуги показать на карте. АВИСТ.А. Компания бухгалтерских и юридических услуг.
-04.09.2020 21.44.46 :: Параметр *** get_my_company_contact *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
-04.09.2020 21.44.46 :: Параметр *** _time_rand *** Значение : Время ожидания нового запроса time_rand  4 sec
-04.09.2020 21.44.46 :: Параметр *** create_workbook *** Значение : Книга создана в C:\Users\DeusEx\PycharmProjects\Parser_YD_GOO\Parser_Yandex.xlsx
-04.09.2020 21.44.46 :: Параметр *** _write_to_sheet *** Значение : Начало записи данных в файл
-04.09.2020 21.44.46 :: Параметр *** _write_to_sheet *** Значение : Данные записаны
-04.09.2020 21.44.46 :: Параметр *** main *** Значение : 
+07.09.2020 02.41.30 :: Параметр *** get_response_with_proxy *** Значение : proxy {'http': 'http://83.171.114.92:45822', 'https': 'http://83.171.114.92:45822'}
+07.09.2020 02.41.30 :: Параметр *** get_response_with_proxy *** Значение : ConnectTimeout: ConnectTimeout(MaxRetryError("HTTPSConnectionPool(host='www.yandex.ru', port=443): Max retries exceeded with url: /search/ads?text=%EF%BB%BF%D0%B1%D1%83%D1%85%D0%B3%D0%B0%D0%BB%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%B8%D0%B5%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8&lr=35&within=5&lang=ru (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x05B1C028>, 'Connection to 83.171.114.92 timed out. (connect timeout=20.48)'))"))
+07.09.2020 02.41.30 :: Параметр *** get_response_with_proxy *** Значение : Connection to proxi timed out
+07.09.2020 02.41.30 :: Параметр *** get_response_with_proxy *** Значение : Время request: 20484.00 ms или 20.48 сек.
+07.09.2020 02.41.30 :: Параметр *** get_response_with_proxy *** Значение : proxy {'http': 'http://90.189.110.170:3128', 'https': 'http://90.189.110.170:3128'}
+07.09.2020 02.41.30 :: Параметр *** get_response_with_proxy *** Значение : Время request: 6969.00 ms или 6.97 сек.
+07.09.2020 02.41.30 :: Параметр *** check_request_status_code *** Значение : Успешный запрос!
+07.09.2020 02.41.30 :: Параметр *** get_response_with_proxy *** Значение : Успешный запрос!
+07.09.2020 02.41.30 :: Параметр *** soup_request *** Значение : Всего найдено блоков 10
+07.09.2020 02.41.30 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги – от 1160₽ за комплекс!
+07.09.2020 02.41.30 :: Параметр *** get_my_company_cid *** Значение : company_cid 0
+07.09.2020 02.41.30 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 1cbo.ru
+07.09.2020 02.41.30 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_text *** Значение : company_text  Бухгалтерские услуги по стандарту Фирмы 1С. Без ошибок и штрафов. 1С:БухОбслуживание · 28 000 клиентов. 805 партнеров. 209 городов. 29 лет опыта. 960 отзывов · 18+
+07.09.2020 02.41.30 :: Параметр *** get_my_company_contact *** Значение : company_contact 8 (800) 77-0X-XXX Показать8 (800) 77-00-321
+07.09.2020 02.41.30 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги – Скидка 50% на 1 мес.!
+07.09.2020 02.41.30 :: Параметр *** get_my_company_cid *** Значение : company_cid 1
+07.09.2020 02.41.30 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 бухгалтерские-услуги1.рф
+07.09.2020 02.41.30 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_text *** Значение : company_text  Оказываем бухгалтерские услуги по Краснодарскому краю! МЫ ПРОФЕССИОНАЛЫ! Позвоните! · Без штрафов. 17 бухгалтеров. Сэкономьте на аутсорсинге. Любая отчетность
+07.09.2020 02.41.30 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (861) 204-19-67
+07.09.2020 02.41.30 :: Параметр *** get_my_company_title *** Значение : company_title Cifra: Удобная бухгалтерия – для бизнеса в телефоне
+07.09.2020 02.41.30 :: Параметр *** get_my_company_cid *** Значение : company_cid 2
+07.09.2020 02.41.30 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 vtb.cifra.app
+07.09.2020 02.41.30 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_text *** Значение : company_text  При открытии в ВТБ р/с для ИП - ведение бухгалтерии 1 год бесплатно!Подать заявку · Налоговый учет. Мультибанк. Напоминания о событиях. Чат-помощник. Бесплатное приложение · Финансовые услуги оказывает: ПАО "Банк ВТБ"
+07.09.2020 02.41.30 :: Параметр *** get_my_company_contact *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_title *** Значение : company_title Аутсорсинг бухгалтерских услуг – Оставить заявку онлайн
+07.09.2020 02.41.30 :: Параметр *** get_my_company_cid *** Значение : company_cid 3
+07.09.2020 02.41.30 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 sber-solutions.ru
+07.09.2020 02.41.30 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_text *** Значение : company_text  Ведем все участки налогового и бухгалтерского учёта по международным стандартам! · Экспертиза. Финансовые гарантии. Более 25 лет опыта. Безопасность
+07.09.2020 02.41.30 :: Параметр *** get_my_company_contact *** Значение : company_contact 8 (800) 700-XX-XX Показать8 (800) 700-13-79
+07.09.2020 02.41.30 :: Параметр *** get_my_company_title *** Значение : company_title Услуги бухгалтера для ИП и ООО – 10 лет опыта
+07.09.2020 02.41.30 :: Параметр *** get_my_company_cid *** Значение : company_cid 4
+07.09.2020 02.41.30 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 buhgalter123.com
+07.09.2020 02.41.30 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_text *** Значение : company_text  От 700₽. Профильное высшее образование. - 80% на первый месяц обслуживания. ЕНДВ, УДС. · Команда профессионалов. Качественно. Надежно. Выгодно
+07.09.2020 02.41.30 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (928) 192-44-27
+07.09.2020 02.41.30 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги в Краснодаре – Под ключ!
+07.09.2020 02.41.30 :: Параметр *** get_my_company_cid *** Значение : company_cid 5
+07.09.2020 02.41.30 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 universal-online.ru
+07.09.2020 02.41.30 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_text *** Значение : company_text  Услуги под ключ. Бухгалтерские услуги для ИП и ЮЛ. Работаем в Краснодаре. Звони! · Аутсорсинг. Качественно. Оперативно. Под ключ
+07.09.2020 02.41.30 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (861) 215-96-56
+07.09.2020 02.41.30 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги – Ищите на Яндекс.Услугах
+07.09.2020 02.41.30 :: Параметр *** get_my_company_cid *** Значение : company_cid 6
+07.09.2020 02.41.30 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 uslugi.yandex.ru
+07.09.2020 02.41.30 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_text *** Значение : company_text  Сравните реальные цены и отзывы, и выберите подходящего специалиста. · Не берем комиссию. 4 500 Услуг. 450 000 Исполнителей. Система рейтингов
+07.09.2020 02.41.30 :: Параметр *** get_my_company_contact *** Значение : company_contact АдресКраснодар
+07.09.2020 02.41.30 :: Параметр *** get_my_company_title *** Значение : company_title Бухгалтерские услуги. – От 4 200р. Компания «Моё дело»
+07.09.2020 02.41.30 :: Параметр *** get_my_company_cid *** Значение : company_cid 7
+07.09.2020 02.41.30 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 moedelo.org
+07.09.2020 02.41.30 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_text *** Значение : company_text  Бухгалтерские услуги. Законно снижаем налоги. Компания «Моё дело». Кликай. · Поддержка 24/7. Цена. Отчетность ООО. Отчетность ИП
+07.09.2020 02.41.30 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (800) 200-77-27
+07.09.2020 02.41.30 :: Параметр *** get_my_company_title *** Значение : company_title бухгалтерские услуги. Звоните! – Бух учёт. Налоговый учёт.
+07.09.2020 02.41.30 :: Параметр *** get_my_company_cid *** Значение : company_cid 8
+07.09.2020 02.41.30 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 нетпрофит.рф
+07.09.2020 02.41.30 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_text *** Значение : company_text  Любая сфера деятельности Вашего бизнеса. ОСН, ЕСХН, УСН, ЕНВД. Профессионально.
+07.09.2020 02.41.30 :: Параметр *** get_my_company_contact *** Значение : company_contact +7 (962) 410-76-54
+07.09.2020 02.41.30 :: Параметр *** get_my_company_title *** Значение : company_title Скидки для бизнеса от Mastercard – Бизнес-Бонус
+07.09.2020 02.41.30 :: Параметр *** get_my_company_cid *** Значение : company_cid 9
+07.09.2020 02.41.30 :: Параметр *** get_my_company_link_1 *** Значение : company_link_1 business.mastercard.ru
+07.09.2020 02.41.30 :: Параметр *** get_my_company_sitelinks *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** get_my_company_text *** Значение : company_text  Оплачивайте услуги бизнес-картой Mastercard и получайте бонусы от наших партнёров · Регистрируйся. Копи бонусы. Получай скидки
+07.09.2020 02.41.30 :: Параметр *** get_my_company_contact *** Значение :  AttributeError: AttributeError("'NoneType' object has no attribute 'text'")
+07.09.2020 02.41.30 :: Параметр *** _time_rand *** Значение : Время ожидания нового запроса time_rand  4 sec
+07.09.2020 02.41.30 :: Параметр *** create_workbook *** Значение : Книга создана в C:\Users\DeusEx\PycharmProjects\Parser_YD_GOO\Parser_Yandex 07.09.2020.xlsx
+07.09.2020 02.41.30 :: Параметр *** _write_to_sheet *** Значение : Начало записи данных в файл
+07.09.2020 02.41.30 :: Параметр *** _write_to_sheet *** Значение : Данные записаны
+07.09.2020 02.41.30 :: Параметр *** main *** Значение : 
 **** Done ****
 
