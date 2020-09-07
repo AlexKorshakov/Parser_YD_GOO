@@ -162,7 +162,7 @@ class Parser:
             l_message(gfn(), f'Неудачный запрос! Ответ {str(request.status_code)} : {str(request.status_code)}',
                       color=Nm.bcolors.FAIL)
 
-    def soup_request(self, ):
+    def soup_request_yandex(self, ):
         """ обработка ответа с помощью BeautifulSoup. Если есть нужные данные - передаёт на поиск нужных данных в
             divs_text_shelves """
 
@@ -171,6 +171,20 @@ class Parser:
             self.divs = soup.find_all('li', class_='serp-item')  # данные ответа
 
         if self.divs is None:
+            l_message(gfn(), 'Ответ не содержит нужных данных :(', color=Nm.bcolors.FAIL)
+            return
+
+        l_message(gfn(), f'Всего найдено блоков ' + str(len(self.divs)), color=Nm.bcolors.OKBLUE)
+
+    def soup_request_google(self, ):
+        """ обработка ответа с помощью BeautifulSoup. Если есть нужные данные - передаёт на поиск нужных данных в
+            divs_text_shelves """
+
+        if hasattr(self.request, 'text') and self.request.text != '':
+            soup = BeautifulSoup(self.request.text, 'lxml')  # ответ
+            self.divs = soup.find_all('li', class_='ads-fr')  # данные ответа
+
+        if self.divs is None or len(self.divs) == 0:
             l_message(gfn(), 'Ответ не содержит нужных данных :(', color=Nm.bcolors.FAIL)
             return
 

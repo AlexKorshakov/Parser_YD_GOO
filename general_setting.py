@@ -9,11 +9,11 @@ request_timeout = 10.24
 
 HOST: str = 'https://yandex.ru'
 
-agents = ['Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:61.0) Gecko/20100101 Firefox/61.0',
-          'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko)',
-          'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko)',
-          'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko)',
-          'Mozilla/5.0 (Windows NT 6.4; WOW64) AppleWebKit/537.36 (KHTML, like Gecko)']
+agents = ['Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:61.0) Gecko/20100101 Firefox/61.0']
+# 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko)',
+# 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko)',
+# 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko)',
+# 'Mozilla/5.0 (Windows NT 6.4; WOW64) AppleWebKit/537.36 (KHTML, like Gecko)']
 
 kad_head = {'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
             'Accept-Encoding': 'gzip, deflate',
@@ -46,14 +46,17 @@ headers_tab = {'rowNom': 'п\п',  # i_row
 current_dir = str(os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))))
 
 # базовый запрос
-base_url: str = f'https://www.yandex.ru/search/ads?text='
+base_url_yandex: str = f'https://www.yandex.ru/search/ads?text='
+base_url_google: str = f'https://www.google.com/search'
 
 date_today = datetime.today().strftime("%d.%m.%Y")
+full_path = current_dir + '\\'
+extention = '.xlsx'
 
 report_name = '\Parser_Yandex.xlsx'
 
 # задаём полный путь к файлу с выгрузкой
-full_path = current_dir + '\\' + r'Parser_Yandex ' + date_today + '.xlsx'
+
 
 # задаём полный путь к файлу с ключами
 queries_path = 'queries.txt'
@@ -61,11 +64,13 @@ queries_path = 'queries.txt'
 proxy_path = 'proxieslist.txt'
 
 # задаём максимальное кооличество запросов
-url_max_pos = 2
+url_max_pos_yandex = 2
+url_max_pos_google = 2
 
 # Задаём регион. Санкт-Петербург – 2. Краснодар  - 35
 # Список идентификаторов российских регионов https://tech.yandex.ru/xml/doc/dg/reference/regions-docpage/
-region = 35
+region_yandex = 35
+region_google = '+' + 'Краснодар'
 
 # период
 # 1 – последние две недели;
