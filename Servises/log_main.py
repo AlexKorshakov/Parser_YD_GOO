@@ -3,11 +3,7 @@ from datetime import datetime
 NOW = str(datetime.now().strftime("%d.%m.%Y %H.%M.%S")) + " :: "
 
 
-# VIS_LOG = False  # True -  Отображение хода процесса в консоли
-# PRINT_LOG = True  # True -  Запись лога в файл
-
-
-def log_visrec(*, param_name: str = None, p_value=None, d_path=None, r_log: bool = None, r_print: bool = None):
+def log_vis_rec(*, param_name: str = None, p_value=None, d_path=None, r_log: bool = None, r_print: bool = None):
     """Функция логирования в файл и отображения данны в консоли"""
 
     if r_log:
@@ -23,7 +19,7 @@ def write_to_console(*, param_name: str = None, p_value=None):
     try:
         if param_name == 'NLine':
             print('=' * 100)
-            pass
+
         try:
             if len(p_value) < 100:
                 print(NOW + f'Параметр {param_name} Значение: {p_value}')
@@ -35,7 +31,7 @@ def write_to_console(*, param_name: str = None, p_value=None):
             print(NOW + f'Параметр {param_name} Значение: {p_value}')
 
     except ConnectionError as err:
-        log_visrec(param_name='log_visrec: Ошибка вывода в консоль', p_value=str(err.args), r_log=True)
+        log_vis_rec(param_name='log_vis_rec: Ошибка вывода в консоль', p_value=str(err.args), r_log=True)
 
 
 def write_to_text_log(*, param_name: str = None, p_value=None, d_path=None):
@@ -47,4 +43,4 @@ def write_to_text_log(*, param_name: str = None, p_value=None, d_path=None):
             file.write(text + '\n')
 
     except ConnectionError as err:
-        log_visrec(param_name='log_visrec: Ошибка записи в файл', p_value=str(err.args), r_log=True)
+        log_vis_rec(param_name='log_vis_rec: Ошибка записи в файл', p_value=str(err.args), r_log=True)

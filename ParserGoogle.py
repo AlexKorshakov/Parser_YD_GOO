@@ -1,9 +1,8 @@
-
 from requests.exceptions import ConnectionError
 from tqdm import tqdm
 
-import general_setting_yandex_parser as gs
-import text_shelves_yandex as ts
+import general_setting_google_parser as gs
+import text_shelves_google as ts
 from Parser import Parser
 from Servises import Notify_by_Message as Nm
 from Servises.Notify_by_Message import get_function_name as gfn
@@ -14,10 +13,10 @@ from Servises.timeit import timeit
 PASSED = False
 
 __date__ = '19.09.2020'
-_name_ = 'Parser_Yandex'
+_name_ = 'Parser_Google'
 
 
-class ParserYandex(Parser):
+class ParserGoogle(Parser):
 
     def __init__(self, *, urls):
         super(Parser, self).__init__()
@@ -74,19 +73,15 @@ class ParserYandex(Parser):
 
         self.write_data_to_file()
 
-    def write_data_to_file(self):
-        file_writer = WriterToXLSX(self.divs_requests, self.full_path)
-        file_writer.file_writer()
-
     def divs_text_shelves(self):
         """ищем нужные данные ответа"""
 
         i_row: int = 1
         for div in tqdm(self.divs):
             my_company_title: str = ts.get_my_company_title(div)
-            my_company_cid: str = ts.get_my_company_cid(div)
+            my_company_cid: str = ts.get_my_company_cid(i_row)
             my_company_link_1: str = ts.get_my_company_link_1(div)
-            my_company_site_links: str = ts.get_my_company_sitelinks(div)
+            my_company_site_links: str = ts.get_my_company_site_links(div)
             my_company_text: str = ts.get_my_company_text(div)
             my_company_contact: str = ts.get_my_company_contact(div)
 
@@ -100,34 +95,34 @@ class ParserYandex(Parser):
                                        'company_contact': my_company_contact})
             i_row = i_row + 1
 
+    def write_data_to_file(self):
+        file_writer = WriterToXLSX(self.divs_requests, self.full_path)
+        file_writer.file_writer()
+
 
 @timeit
-def url_constructor_yandex(queries_path, selected_base_url, selected_region, within_time, num_doc=10, max_pos=3):
-    """формируем запрос из запчастей"""
+def url_constructor_for_google(queries_path: str, selected_base_url: str, selected_region: str, max_pos: int = 3):
+    """Формируем запрос из запчастей"""
 
     urls = []
     # открываем файл с ключами по пути queries_path и считываем ключи
     with open(queries_path, 'r', encoding='utf-8') as file:
-        query = [x.strip() for x in file]
+        query: list = [x.strip() for x in file]
 
     for ques in query:  # перебираем ключи и формируем url на их основе
         divs_ques: str = ques
-        if num_doc == 10:
-            mod_url = selected_base_url + ques.replace(' ', '%20') + '&lr=' + str(selected_region) + '&within=' + str(
-                within_time) + '&lang=ru'
-        else:
-            mod_url = selected_base_url + ques.replace(' ', '%20') + '&lr=' + str(selected_region) + '&within=' + str(
-                within_time) + '&lang=ru' + '&num_doc=' + str(num_doc)
+        mod_url = selected_base_url + '?q=' + ques.replace(' ', '+') + selected_region
+
+        l_message(gfn(), mod_url, color=Nm.BColors.OKBLUE)
 
         for i in range(max_pos):  # дополняем url и формируем для кажного запроса
             if i == 0:
-                l_message(gfn(), mod_url, color=Nm.BColors.OKBLUE)
                 urls.append({'url': mod_url, 'ques': divs_ques})  # перывя ссылка с ключем
             else:
-                url = str(mod_url + '&p=' + str(i))
+                url = str(mod_url + '&start=' + str(i) + '0')
                 if url not in urls:
-                    l_message(gfn(), url, color=Nm.BColors.OKBLUE)
                     urls.append({'url': url, 'ques': divs_ques})  # остальные ссылки с ключом
+                    l_message(gfn(), url, color=Nm.BColors.OKBLUE)
     return urls
 
 
@@ -137,10 +132,9 @@ def main():
 
     l_message(gfn(), '\n**** Start ****\n', color=Nm.BColors.OKBLUE)
 
-    urls = url_constructor_yandex(gs.queries_path, gs.base_url_yandex, gs.region_yandex, gs.within_time, gs.num_doc,
-                                  gs.url_max_pos_yandex)
+    urls = url_constructor_for_google(gs.queries_path, gs.base_url_google, gs.region_google, gs.url_max_pos_google)
 
-    parser = ParserYandex(urls=urls)
+    parser = ParserGoogle(urls=urls)
     parser.start_work()
 
     l_message(gfn(), '\n**** Done ****\n', color=Nm.BColors.OKBLUE)

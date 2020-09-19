@@ -3,14 +3,14 @@ import os
 import win32com.client
 from win32com.universal import com_error
 
-import general_setting as gs
+import general_setting_google_parser as gs
 from Servises import Notify_by_Message as Nm
 from Servises.Notify_by_Message import get_function_name as gfn, l_message
 
 PASSED = False
 
 
-class Writer_to_xlsx:
+class WriterToXLSX:
     def __init__(self, divs_requests, full_path_to_file):
         self.divs_requests = divs_requests
         self.excel_app = None
@@ -21,14 +21,14 @@ class Writer_to_xlsx:
         """Записываем данные в файл Excel."""
 
         if len(self.divs_requests) == 0:
-            l_message(gfn(), f' \n Нет данных для записи в файл! \n ', color=Nm.bcolors.FAIL)
+            l_message(gfn(), f' \n Нет данных для записи в файл! \n ', color=Nm.BColors.FAIL)
             return
 
         self.insert_headers_divs_requests()
         excel_app, wbook = self.create_workbook()
 
         if __debug__ and not PASSED:
-            assert excel_app is not None, 'Не удалось подключится к Ecxel'
+            assert excel_app is not None, 'Не удалось подключится к excel'
             assert wbook is not None, 'Не удалось создать книгу'
 
         try:
@@ -37,15 +37,15 @@ class Writer_to_xlsx:
             self.excel_app_quit()
 
         except Exception as err:
-            l_message(gfn(), f" Exception: {repr(err)}", color=Nm.bcolors.FAIL)
-            l_message(gfn(), 'Не удалось записать данные', color=Nm.bcolors.FAIL)
+            l_message(gfn(), f" Exception: {repr(err)}", color=Nm.BColors.FAIL)
+            l_message(gfn(), 'Не удалось записать данные', color=Nm.BColors.FAIL)
             self.excel_app_quit()
             return
 
     def _write_to_sheet(self):
         """Запись данных на лист."""
 
-        l_message(gfn(), 'Начало записи данных в файл', color=Nm.bcolors.OKBLUE)
+        l_message(gfn(), 'Начало записи данных в файл', color=Nm.BColors.OKBLUE)
         doc_row: int = 1
         for divs_iter in self.divs_requests:  # записываем данные
 
@@ -61,7 +61,7 @@ class Writer_to_xlsx:
             self.wbook.Worksheets.Item(1).Cells(doc_row, 7).Value = divs_iter['company_text']
             self.wbook.Worksheets.Item(1).Cells(doc_row, 8).Value = divs_iter['company_contact']
             doc_row += 1
-        l_message(gfn(), 'Данные записаны', color=Nm.bcolors.OKBLUE)
+        l_message(gfn(), 'Данные записаны', color=Nm.BColors.OKBLUE)
 
     def insert_headers_divs_requests(self):
         """Создание заголовков в list с распарсенными данными."""
@@ -80,22 +80,22 @@ class Writer_to_xlsx:
 
             self.wbook = self.excel_app.Workbooks.Add()
             self.wbook.SaveAs(self.full_path_to_file)
-            l_message(gfn(), f'Книга создана в {self.full_path_to_file}', color=Nm.bcolors.OKBLUE)
+            l_message(gfn(), f'Книга создана в {self.full_path_to_file}', color=Nm.BColors.OKBLUE)
 
             self.wbook = self.excel_app.Workbooks.Open(self.full_path_to_file)
 
         except com_error as err:
-            l_message(gfn(), f" pywintypes.com_error: {repr(err)}", color=Nm.bcolors.FAIL)
+            l_message(gfn(), f" pywintypes.com_error: {repr(err)}", color=Nm.BColors.FAIL)
 
         except TypeError as err:
-            l_message(gfn(), f"  TypeError: {repr(err)}", color=Nm.bcolors.FAIL)
+            l_message(gfn(), f"  TypeError: {repr(err)}", color=Nm.BColors.FAIL)
             try:
                 self.wbook.Close(False)  # save the workbook
                 self.excel_app_quit()
-                l_message(gfn(), "**** Аварийное завершение программы ****", color=Nm.bcolors.FAIL)
+                l_message(gfn(), "**** Аварийное завершение программы ****", color=Nm.BColors.FAIL)
 
             except AttributeError as err:
-                l_message(gfn(), f" AttributeError: {repr(err)}", color=Nm.bcolors.FAIL)
+                l_message(gfn(), f" AttributeError: {repr(err)}", color=Nm.BColors.FAIL)
                 quit()
 
         return self.excel_app, self.wbook
@@ -114,27 +114,3 @@ class Writer_to_xlsx:
         self.excel_app.Visible = True
         self.excel_app.ScreenUpdating = True
         self.excel_app.Quit()
-
-# @timeit
-# def Parser_parallel(urls, max_process: int) -> list:
-#     """основная функция мульти парсера"""
-#
-#     pool_urls: list = []  # создаем список / очередь url
-#     divs_requests_all: list = []  # создаем список  с ответами
-#
-#     for key_urls in urls:
-#         pool_urls.append(key_urls['url'])  # создаем список / очередь url
-#
-#     with concurrent.futures.ProcessPoolExecutor(max_workers=max_process)as executor:  # создаем очередь процессов
-#         results = [executor.submit(get_it, my_url) for my_url in pool_urls]  # каждый процесс берёт свой URL
-#
-#         for future in concurrent.futures.as_completed(results):  # Ответы
-#             try:
-#                 if not len(list(future.result())) == 0:  # если результат что то содержит то добавляем
-#                     divs_requests_all.extend(list(future.result()))
-#
-#             except Exception as err:
-#                 l_message(gfn(), f" Exception: {repr(err)}", color=Nm.bcolors.FAIL)
-#         l_message(gfn(), str(divs_requests_all), color=Nm.bcolors.OKBLUE)
-#
-#     return divs_requests_all

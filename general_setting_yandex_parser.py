@@ -47,16 +47,13 @@ current_dir = str(os.path.dirname(os.path.abspath(inspect.getfile(inspect.curren
 
 # базовый запрос
 base_url_yandex: str = f'https://www.yandex.ru/search/ads?text='
-base_url_google: str = f'https://www.google.com/search'
 
 date_today = datetime.today().strftime("%d.%m.%Y")
 full_path = current_dir + '\\'
-extention = '.xlsx'
-
-report_name = '\Parser_Yandex.xlsx'
+extension = '.xlsx'
 
 # задаём полный путь к файлу с выгрузкой
-
+report_name = '\Parser_Yandex.xlsx'
 
 # задаём полный путь к файлу с ключами
 queries_path = 'queries.txt'
@@ -65,7 +62,6 @@ proxy_path = 'proxieslist.txt'
 
 # задаём максимальное кооличество запросов
 url_max_pos_yandex = 2
-url_max_pos_google = 2
 
 # Задаём регион. Санкт-Петербург – 2. Краснодар  - 35
 # Список идентификаторов российских регионов https://tech.yandex.ru/xml/doc/dg/reference/regions-docpage/
@@ -91,3 +87,9 @@ num_doc = 10  # не рекомендуется менять от слова с�
 #  по умолчанию = 10
 # колличество одновременных процессов / потоков
 max_process = 1
+
+# параметры парсинга ответов
+
+soup_name = 'li'
+soup_class = 'serp-item'
+soup_attribute = 'text'

@@ -6,7 +6,7 @@ import requests
 from proxybroker import Broker
 from requests.exceptions import ConnectTimeout, ProxyError
 
-import general_setting as gs
+import general_setting_google_parser as gs
 from Servises import Notify_by_Message as Nm
 from Servises.Notify_by_Message import get_function_name as gfn
 from Servises.Notify_by_Message import l_message
@@ -21,7 +21,7 @@ async def saveproxies(proxies, filename: str):
     :param filename: полный путь к файлу для записи и хранения прокси: str
     """
 
-    l_message(gfn(), f'proxyes {proxies}', color=Nm.bcolors.OKBLUE)
+    l_message(gfn(), f'proxyes {proxies}', color=Nm.BColors.OKBLUE)
     with open(filename, 'w') as file:
         while True:
             proxy = await proxies.get()
@@ -51,7 +51,7 @@ def get_proxies(limit: int = 10):
     with open(PROXIES, 'r') as prx_row:
         proxies_list_get = prx_row.read().split('\n')
 
-    l_message(gfn(), f'proxies_list_get {str(proxies_list_get)}', color=Nm.bcolors.OKBLUE)
+    l_message(gfn(), f'proxies_list_get {str(proxies_list_get)}', color=Nm.BColors.OKBLUE)
     return proxies_list_get
 
 
@@ -61,7 +61,7 @@ def check_proxies(proxies_list: list):
     :param proxies_list: лист с прокси для проверки : list
     """
 
-    l_message(gfn(), f'proxies_list {str(proxies_list)}', color=Nm.bcolors.OKBLUE)
+    l_message(gfn(), f'proxies_list {str(proxies_list)}', color=Nm.BColors.OKBLUE)
     mgr = multiprocessing.Manager()
     valid_proxies_list: list = mgr.list()
 
@@ -77,7 +77,7 @@ def check_proxies(proxies_list: list):
     for chunk_p in parcs_list:
         chunk_p.join()
 
-    l_message(gfn(), f'valid_proxies_list {str(valid_proxies_list)}', color=Nm.bcolors.OKBLUE)
+    l_message(gfn(), f'valid_proxies_list {str(valid_proxies_list)}', color=Nm.BColors.OKBLUE)
 
     return valid_proxies_list
 
@@ -90,44 +90,44 @@ def check_proxy(proxies_for_check, valid_proxies):
 
     session = requests.Session()
     for nu_proxy in proxies_for_check:
-        l_message(gfn(), f'nu_proxy {str(nu_proxy)}', color=Nm.bcolors.OKBLUE)
+        l_message(gfn(), f'nu_proxy {str(nu_proxy)}', color=Nm.BColors.OKBLUE)
         try:
             # time_rand(2, 3)  # задержка исполнеия
             request = session.get(gs.HOST, headers=gs.HEADERS_TEST, proxies={'http': nu_proxy, 'https': nu_proxy},
                                   timeout=gs.timeout)
-            l_message(gfn(), f'request.status_code {str(request.status_code)}', color=Nm.bcolors.OKBLUE)
+            l_message(gfn(), f'request.status_code {str(request.status_code)}', color=Nm.BColors.OKBLUE)
 
             if int(request.status_code) == 200:
                 valid_proxies.append(nu_proxy)
                 l_message(gfn(), f"valid_proxies {str(nu_proxy)} : {str(request.headers['Content-Type'])}",
-                          color=Nm.bcolors.OKBLUE)
+                          color=Nm.BColors.OKBLUE)
                 return valid_proxies
             elif int(request.status_code) == 406:
                 valid_proxies.append(nu_proxy)
                 l_message(gfn(), f"valid_proxies {str(nu_proxy)} : {str(request.headers['Content-Type'])}",
-                          color=Nm.bcolors.OKBLUE)
+                          color=Nm.BColors.OKBLUE)
                 return valid_proxies
 
             elif int(request.status_code) == 400:
-                l_message(gfn(), f'BAD PROXY {nu_proxy} : {request.text}', color=Nm.bcolors.FAIL)
+                l_message(gfn(), f'BAD PROXY {nu_proxy} : {request.text}', color=Nm.BColors.FAIL)
             elif 400 < int(request.status_code) < 500:
-                l_message(gfn(), f'Client Error {nu_proxy} : {request.text}', color=Nm.bcolors.FAIL)
+                l_message(gfn(), f'Client Error {nu_proxy} : {request.text}', color=Nm.BColors.FAIL)
             elif 500 <= int(request.status_code) < 600:
-                l_message(gfn(), f'Server Error {nu_proxy} : {request.text}', color=Nm.bcolors.FAIL)
+                l_message(gfn(), f'Server Error {nu_proxy} : {request.text}', color=Nm.BColors.FAIL)
             else:
-                l_message(gfn(), f'Error {nu_proxy} : {request.text}', color=Nm.bcolors.FAIL)
+                l_message(gfn(), f'Error {nu_proxy} : {request.text}', color=Nm.BColors.FAIL)
 
         except ProxyError as err:
-            l_message(gfn(), f"ProxyError: {repr(err)}", color=Nm.bcolors.FAIL)
+            l_message(gfn(), f"ProxyError: {repr(err)}", color=Nm.BColors.FAIL)
 
         except ConnectTimeout as err:
-            l_message(gfn(), f"ConnectTimeout: {repr(err)}", color=Nm.bcolors.FAIL)
+            l_message(gfn(), f"ConnectTimeout: {repr(err)}", color=Nm.BColors.FAIL)
 
         except AttributeError as err:
-            l_message(gfn(), f"AttributeError: {repr(err)}", color=Nm.bcolors.FAIL)
+            l_message(gfn(), f"AttributeError: {repr(err)}", color=Nm.BColors.FAIL)
             pass
         except Exception as err:
-            l_message(gfn(), f"Exception: {repr(err)}", color=Nm.bcolors.FAIL)
+            l_message(gfn(), f"Exception: {repr(err)}", color=Nm.BColors.FAIL)
             pass
 
 
@@ -142,7 +142,7 @@ def appload_proxies_list(get_prox: list):
             proxies_list: list = file.read().split('\n')
 
     except Exception as err:
-        l_message(gfn(), f"Exception: {repr(err)}", color=Nm.bcolors.FAIL)
+        l_message(gfn(), f"Exception: {repr(err)}", color=Nm.BColors.FAIL)
         # если файл пустой - обнуляем список
         proxies_list = []
 
@@ -150,7 +150,7 @@ def appload_proxies_list(get_prox: list):
         get_prox.extend(proxies_list)
 
     get_proxy = list(set(get_prox))  # преобразуев множество чтобы удалить повторы и обратно в list
-    l_message(gfn(), f"{str(get_proxy)}", color=Nm.bcolors.OKBLUE)
+    l_message(gfn(), f"{str(get_proxy)}", color=Nm.BColors.OKBLUE)
 
     with open(PROXIES_LIST, 'w') as file:
         file.write('\n'.join(get_proxy))
@@ -161,7 +161,7 @@ def time_rand(t_start: int = 1, t_stop: int = 30):
     """Функция задержки выполнения кода на рандомный промежуток."""
 
     time_random = random.randint(t_start, t_stop)
-    l_message(gfn(), f'Время ожидания нового запроса time_rand  {str(time_random)} sec', color=Nm.bcolors.OKBLUE)
+    l_message(gfn(), f'Время ожидания нового запроса time_rand  {str(time_random)} sec', color=Nm.BColors.OKBLUE)
 
     for _ in range(time_random):
         time.sleep(random.uniform(0.8, 1.2))
@@ -170,7 +170,7 @@ def time_rand(t_start: int = 1, t_stop: int = 30):
 def main():
     """Основная функция"""
 
-    l_message(gfn(), '\n**** Start ****\n', color=Nm.bcolors.OKBLUE)
+    l_message(gfn(), '\n**** Start ****\n', color=Nm.BColors.OKBLUE)
 
     for _ in range(10):
         proxies_list_get = get_proxies(limit=gs.max_proxies)  # собираем прокси с помощью Broker
@@ -179,7 +179,7 @@ def main():
 
         time_rand(10, 15)
 
-    l_message(gfn(), '\n**** Done ****\n', color=Nm.bcolors.OKBLUE)
+    l_message(gfn(), '\n**** Done ****\n', color=Nm.BColors.OKBLUE)
 
 
 if __name__ == '__main__':
