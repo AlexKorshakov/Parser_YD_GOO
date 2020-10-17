@@ -2,9 +2,11 @@ from Servises import Notify_by_Message as Nm
 from Servises.Notify_by_Message import get_function_name as gfn
 from Servises.Notify_by_Message import l_message
 
+print(f'Invoking __init__.py for {__name__}')
+
 
 def get_my_company_title(div):
-    """Найти и вернуть название компании"""
+    """Найти и вернуть название компании."""
 
     try:
         my_company_title: str = div.text.replace('Почему мне показано это объявление?', '')
@@ -18,7 +20,7 @@ def get_my_company_title(div):
 
 
 def get_my_company_cid(i_row=None):
-    """Найти и вернуть порядковый номер компании на странице."""
+    """Найти и вернуть порядковый номер компании."""
 
     try:
         my_company_cid: str = str(i_row - 1)

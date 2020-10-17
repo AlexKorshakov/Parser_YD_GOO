@@ -3,11 +3,13 @@ import os
 from datetime import datetime
 from random import choice
 
+print(f'Invoking __init__.py for {__name__}')
+
 timeout = 180
 max_proxies = 25  # максимальное кооличество прокси
 request_timeout = 10.24
 
-HOST: str = 'https://yandex.ru'
+HOST: str = 'https://google.com'
 
 agents = ['Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:61.0) Gecko/20100101 Firefox/61.0']
 # 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko)',
@@ -46,50 +48,29 @@ headers_tab = {'rowNom': 'п\п',  # i_row
 current_dir = str(os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))))
 
 # базовый запрос
-base_url_yandex: str = f'https://www.yandex.ru/search/ads?text='
+base_url_google: str = f'https://www.google.com/search'
 
-date_today = datetime.today().strftime("%d.%m.%Y")
-full_path = current_dir + '\\'
-extension = '.xlsx'
+date_today: str = datetime.today().strftime("%d.%m.%Y")
+full_path: str = current_dir + '\\'
+extension: str = '.xlsx'
 
 # задаём полный путь к файлу с выгрузкой
-report_name = '\Parser_Yandex.xlsx'
+report_name: str = '\Parser_Google.xlsx'
 
 # задаём полный путь к файлу с ключами
-queries_path = 'queries.txt'
+queries_path: str = '../queries.txt'
 
-proxy_path = 'proxieslist.txt'
+# задаём полный путь к файлу с прокси
+proxy_path: str = '../Proxy/proxyeslist.txt'
 
 # задаём максимальное кооличество запросов
-url_max_pos_yandex = 2
 
-# Задаём регион. Санкт-Петербург – 2. Краснодар  - 35
-# Список идентификаторов российских регионов https://tech.yandex.ru/xml/doc/dg/reference/regions-docpage/
-region_yandex = 35
+url_max_pos_google = 2
+
 region_google = '+' + 'Краснодар'
-
-# период
-# 1 – последние две недели;
-# 2 – последний месяц;
-# 3 – три месяца;
-# 4 – полгода;
-# 5 – год;
-# 7 – текущие сутки(даже если новый день наступил пару минут назад, поиск будет
-# ограничен именно этой парой минут);
-# 77 – сутки(24 часа, независимо от того, сколько длятся секущие сутки);
-# 8 – трое суток;
-# 9 – неделя
-within_time = 5
-
-# колличество ссылок в каждой выдаче
-num_doc = 10  # не рекомендуется менять от слова совсем
-# – определяет количество документов (ссылок), отображаемых на одной странице результатов выдачи.
-#  по умолчанию = 10
-# колличество одновременных процессов / потоков
-max_process = 1
 
 # параметры парсинга ответов
 
 soup_name = 'li'
-soup_class = 'serp-item'
+soup_class = 'ads-fr'
 soup_attribute = 'text'

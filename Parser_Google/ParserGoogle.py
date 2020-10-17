@@ -1,9 +1,8 @@
 from requests.exceptions import ConnectionError
 from tqdm import tqdm
 
-import general_setting_google_parser as gs
-import text_shelves_google as ts
-from Parser import Parser
+from Parser_Google import general_setting_google_parser as gs, text_shelves_google as ts
+from Parser_ABC.Parser import Parser
 from Servises import Notify_by_Message as Nm
 from Servises.Notify_by_Message import get_function_name as gfn
 from Servises.Notify_by_Message import l_message
@@ -14,12 +13,13 @@ PASSED = False
 
 __date__ = '19.09.2020'
 _name_ = 'Parser_Google'
+print(f'Invoking __init__.py for {__name__}')
 
 
 class ParserGoogle(Parser):
 
     def __init__(self, *, urls):
-        super(Parser, self).__init__()
+        super(ParserGoogle, self).__init__(self, urls)
         self.urls = urls
 
         self.divs_requests: list = []
@@ -43,9 +43,10 @@ class ParserGoogle(Parser):
         self.soup_attribute = gs.soup_attribute
 
     def start_work(self):
-        """основная функция парсера"""
+        """ функция парсера.
+        """
 
-        assert self.urls is not None, gfn() + "urls not passed"
+        assert self.urls is not None, f"{gfn()} urls not passed"
 
         for number, item_url in enumerate(self.urls):
             l_message(gfn(), f"\nЗапрос номер: {number + 1} \n", color=Nm.BColors.OKBLUE)
@@ -96,13 +97,16 @@ class ParserGoogle(Parser):
             i_row = i_row + 1
 
     def write_data_to_file(self):
+        """ Запись данных в файл.
+        """
         file_writer = WriterToXLSX(self.divs_requests, self.full_path)
         file_writer.file_writer()
 
 
 @timeit
-def url_constructor_for_google(queries_path: str, selected_base_url: str, selected_region: str, max_pos: int = 3):
-    """Формируем запрос из запчастей"""
+def url_constructor_google(queries_path: str, selected_base_url: str, selected_region: str, max_pos: int = 3):
+    """ Формирование запросов из запчастей.
+    """
 
     urls = []
     # открываем файл с ключами по пути queries_path и считываем ключи
@@ -128,11 +132,12 @@ def url_constructor_for_google(queries_path: str, selected_base_url: str, select
 
 @timeit
 def main():
-    """Основная функция с параметрами."""
+    """Основная функция с параметрами.
+    """
 
     l_message(gfn(), '\n**** Start ****\n', color=Nm.BColors.OKBLUE)
 
-    urls = url_constructor_for_google(gs.queries_path, gs.base_url_google, gs.region_google, gs.url_max_pos_google)
+    urls = url_constructor_google(gs.queries_path, gs.base_url_google, gs.region_google, gs.url_max_pos_google)
 
     parser = ParserGoogle(urls=urls)
     parser.start_work()

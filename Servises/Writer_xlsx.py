@@ -1,9 +1,11 @@
+""" Модуль с функциями создания файла и записи данных в него.
+"""
 import os
 
 import win32com.client
 from win32com.universal import com_error
 
-import general_setting_google_parser as gs
+from Parser_Google import general_setting_google_parser as gs
 from Servises import Notify_by_Message as Nm
 from Servises.Notify_by_Message import get_function_name as gfn, l_message
 
@@ -11,6 +13,9 @@ PASSED = False
 
 
 class WriterToXLSX:
+    """ Создание файла XLSX и запись данных в файл XLSX.
+    """
+
     def __init__(self, divs_requests, full_path_to_file):
         self.divs_requests = divs_requests
         self.excel_app = None
@@ -21,7 +26,7 @@ class WriterToXLSX:
         """Записываем данные в файл Excel."""
 
         if len(self.divs_requests) == 0:
-            l_message(gfn(), f' \n Нет данных для записи в файл! \n ', color=Nm.BColors.FAIL)
+            l_message(gfn(), '\n Нет данных для записи в файл! \n', color=Nm.BColors.FAIL)
             return
 
         self.insert_headers_divs_requests()
