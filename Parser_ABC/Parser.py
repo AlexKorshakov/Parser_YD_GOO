@@ -34,7 +34,7 @@ class Parser:
         self.divs_requests: list = []  # список c ответами
         self.result: list = []
 
-        self.headers = None
+        self.headers = []
         self.divs = None
         self.ques = None
         self.url = None
@@ -233,7 +233,7 @@ class Parser:
             return
 
         soup = BeautifulSoup(self.request.text, 'lxml')  # ответ
-        self.divs = soup.find_all(self.soup_name, class_=self.soup_class)  # данные ответа
+        self.divs = soup.find_all(class_=self.soup_class)  # данные ответа
 
         if self.divs is None or len(self.divs) == 0:
             l_message(gfn(), 'Ответ не содержит нужных данных :(', color=BColors.FAIL)

@@ -11,7 +11,9 @@ request_timeout = 10.24
 
 HOST: str = 'https://google.com'
 
-agents = ['Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:61.0) Gecko/20100101 Firefox/61.0']
+agents = [
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36']
+
 # 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko)',
 # 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko)',
 # 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko)',
@@ -46,7 +48,6 @@ headers_tab = {'rowNom': 'п\п',  # i_row
                'company_contact': 'Контакты'}
 
 current_dir = str(os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))))
-
 # базовый запрос
 base_url_google: str = f'https://www.google.com/search'
 
@@ -71,6 +72,7 @@ region_google = '+' + 'Краснодар'
 
 # параметры парсинга ответов
 
-soup_name = 'li'
-soup_class = 'ads-fr'
+soup_name = 'bottomads'
+# имя класса для поиска
+soup_class = 'uEierd'
 soup_attribute = 'text'

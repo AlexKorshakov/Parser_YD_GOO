@@ -157,8 +157,8 @@ def app_load_proxies_list(get_proxy: list):
         with open(PROXIES_LIST, 'r') as file:
             proxies_list: list = file.read().split('\n')
 
-    except Exception as err:
-        l_message(gfn(), f"Exception: {repr(err)}", color=Nm.BColors.FAIL)
+    except FileNotFoundError as err:
+        l_message(gfn(), f"FileNotFoundError: {repr(err)}", color=Nm.BColors.FAIL)
         # если файл пустой - обнуляем список
         proxies_list = []
 

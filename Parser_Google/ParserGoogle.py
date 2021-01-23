@@ -31,7 +31,7 @@ class ParserGoogle(Parser):
         self.request = None
         self.divs = None
 
-        self.HEADERS = [gs.HEADERS_TEST, gs.kad_head]
+        self.headers = [gs.HEADERS_TEST, gs.kad_head]
         self.full_path_to_file = gs.full_path
         self.proxy_path = gs.proxy_path
         self.request_timeout = gs.request_timeout
