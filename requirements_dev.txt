@@ -41,7 +41,7 @@ progress==1.5
 prompt-toolkit==3.0.7
 proxybroker==0.3.2
 pudb==2019.2
-pycares==3.1.1
+pycares==4.2.0
 pycodestyle==2.6.0
 pycparser==2.20
 pydocstyle==5.1.1
